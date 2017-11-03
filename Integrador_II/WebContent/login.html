@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  <title>Login Aerolínea</title>
+ 
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<form action="ServletUsuario">
+  <header>Login</header>
+  <label>Usuario</label>
+  <input type="text" name="correo" placeholder="Ingrese correo"/>
+  <div class="help"></div>
+  <label>Contraseña</label>
+  <input type="password" name="password" placeholder="Ingrese password"/>
+  <div class="help"></div>
+  <input type="hidden" name="metodo" value="ingresar">
+  <button class="btn btn-danger">Ingresar</button>
+  <div class="help"></div>
+  
+</form>
+  
+
+</body>
+</html>
