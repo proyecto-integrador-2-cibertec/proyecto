@@ -15,11 +15,7 @@
 
 
 
-<h1>Registro de cliente marcelo leee    
-
-
-
-</h1>
+<h1> Hola Marcelo, soy Diana Cx </h1>
 
 
 </body>
