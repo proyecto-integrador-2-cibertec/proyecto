@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Registro de Cliente</h1>
+<h1>Registro de Cliente    
+
+
+
+</h1>
+
+
+
+<h1>Registro de cliente marcelo leee    
+
+
+
+</h1>
+
+
 </body>
 </html>
