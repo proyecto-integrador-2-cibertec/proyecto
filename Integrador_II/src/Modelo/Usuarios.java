@@ -20,6 +20,23 @@ public class Usuarios {
 	public Usuarios() {
 		super();
 	}
+	
+	
+
+	public Usuarios(String nombreUsuario, String apellidoUsuario, String fechaNacimiento, String correo,
+			String password, String codigoPais, String codigoDocumento, int numeroDocumento) {
+		super();
+		NombreUsuario = nombreUsuario;
+		ApellidoUsuario = apellidoUsuario;
+		FechaNacimiento = fechaNacimiento;
+		Correo = correo;
+		Password = password;
+		CodigoPais = codigoPais;
+		CodigoDocumento = codigoDocumento;
+		NumeroDocumento = numeroDocumento;
+	}
+
+
 
 	public Usuarios(int idUsuario, String nombreUsuario, String apellidoUsuario, String fechaNacimiento, String correo,
 			String password, String codigoPais, String codigoDocumento, int numeroDocumento, boolean admin,
