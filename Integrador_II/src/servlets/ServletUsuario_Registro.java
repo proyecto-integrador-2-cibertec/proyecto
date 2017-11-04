@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Modelo.Usuarios_Registrados;
+import Modelo.Usuarios;
 import Negocio.UsuarioNegocio;
 import utils.MySqlConexion;
 
@@ -69,20 +69,16 @@ public class ServletUsuario_Registro extends HttpServlet {
 		String fecha_nacimiento = request.getParameter("fecha_nacimiento");
 		String pais = request.getParameter("pais");
 		String tipo_doc = request.getParameter("tipo_doc");
-		String numero_doc = request.getParameter("numero_doc");
+		int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
 
         //TODO implementar validación del formulario
-		Usuarios_Registrados bean =new Usuarios_Registrados(correo,password,nombre,apellido,fecha_nacimiento,pais,tipo_doc,numero_doc);
+		Usuarios bean =new Usuarios(correo,password,nombre,apellido,fecha_nacimiento,pais,tipo_doc,numero_doc);
 		 
         MySqlConexion con = new MySqlConexion();
       
         UsuarioNegocio userDaoImpl = new UsuarioNegocio();
         
-        
-        
-		
-		
-		boolean status = userDaoImpl.RegistrarUsuarios(bean);
+        boolean status = userDaoImpl.RegistrarUsuarios(bean);
         
         if(status)
         {

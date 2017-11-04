@@ -28,7 +28,7 @@
 <title>Registro de Cliente  </title>
  </head>
     <body>
-    <form class="form-horizontal" role="form" >
+    <form class="form-horizontal" role="form" action="ServletUsuario" >
      <div class="form-group">
        <div class="container">
         <div class="help"></div>
@@ -40,10 +40,10 @@
          </div>
         <div class="container">
          <img src="">
-         <form action="ServletUsuario_Registro">
-          <div class="form-group">
+         
+                  <div class="form-group">
                        <label for="text-input">Correo</label>
-                       <input type="email" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
+                       <input type="text" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
                     </div>
                     
                      <div class="form-group">
@@ -74,7 +74,7 @@
                         <input type="text" placeholder="Escribe tu Tipo de Documento" class="form-control" name="tipo_doc"  id="text-input">
                     </div>     
                      <div class="form-group">
-                        <label for="text-input">Nuemro de Documento</label>
+                        <label for="text-input">Número de Documento</label>
                         <input type="text" placeholder="Escribe tu nombre aquí" class="form-control" name="numero_doc"  id="text-input">
                     </div>  
                     <input type="hidden" name="registrar_usuario" value="Registrar">
@@ -89,7 +89,6 @@
             </div>
               
        </div>
-</form>
        <!-- jQuery first, then Tether, then Bootstrap JS. -->
        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
