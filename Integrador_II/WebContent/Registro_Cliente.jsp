@@ -7,19 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Registro de Cliente    
+<h1>Registro de Cliente</h1>
 
 
 
-</h1>
-
-
-
-<h1> Hola Marcelo, soy Diana y yo alex </h1>
-
-
-
-<h2>Hola Diana, soy Marcelo xd</h2>
 
 </body>
 </html>
