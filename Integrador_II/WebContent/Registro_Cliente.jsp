@@ -28,7 +28,10 @@
 <title>Registro de Cliente  </title>
  </head>
     <body>
-    <form class="form-horizontal" role="form" >
+    
+    
+   <form action="ServletUsuario">
+    
      <div class="form-group">
        <div class="container">
         <div class="help"></div>
@@ -40,7 +43,7 @@
          </div>
         <div class="container">
          <img src="">
-         <form action="ServletUsuario_Registro">
+        
           <div class="form-group">
                        <label for="text-input">Correo</label>
                        <input type="email" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
@@ -77,14 +80,14 @@
                         <label for="text-input">Nuemro de Documento</label>
                         <input type="text" placeholder="Escribe tu nombre aquí" class="form-control" name="numero_doc"  id="text-input">
                     </div>  
-                    <input type="hidden" name="registrar_usuario" value="Registrar">
+                    <input type="hidden" name="metodo" value="registrar_usuario">
                     <button class="btn btn-danger">Registrar</button>
                     <div class="help"></div>
                      
                        
  
                    
-                </form>  
+              
               
             </div>
               

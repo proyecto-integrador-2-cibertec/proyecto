@@ -6,13 +6,14 @@ public class Usuarios_Registrados implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int IdUsuario;
+	private String IdUsuario;
 	private String NombreUsuario;
 	private String ApellidoUsuario;
 	private String FechaNacimiento;
 	private String Correo;
 	private String Password;
     private String CodigoPais;
+    private String Codidocumento;
     private String TipoDocumento;
     private String NumeroDocumento;
     private boolean Admin;
@@ -24,13 +25,14 @@ public class Usuarios_Registrados implements Serializable {
 	public Usuarios_Registrados() {
 		super();
 	}
-	public Usuarios_Registrados( String nombreUsuario, String apellidoUsuario, String fechaNacimiento, String correo,
-			String password, String codigoPais, String tipoDocumento, String numeroDocumento) {
+	public Usuarios_Registrados( String idUsuario, String correo, String password, String nombreUsuario, String apellidoUsuario,
+			String fechaNacimiento, String codigoPais,String codidocumento, String tipoDocumento, String numeroDocumento) {
 		super();
-	
+		IdUsuario=IdUsuario;
 		NombreUsuario = nombreUsuario;
 		ApellidoUsuario = apellidoUsuario;
 		FechaNacimiento = fechaNacimiento;
+		Codidocumento=codidocumento;
 		Correo = correo;
 		Password = password;
 		CodigoPais = codigoPais;
@@ -39,11 +41,11 @@ public class Usuarios_Registrados implements Serializable {
 		
 		
 	}
-	public Usuarios_Registrados(int idUsuario, String nombreUsuario, String apellidoUsuario, String fechaNacimiento, String correo,
+	public Usuarios_Registrados( String nombreUsuario, String apellidoUsuario, String fechaNacimiento, String correo,
 			String password, String codigoPais, String tipoDocumento, String numeroDocumento, boolean admin,
 			boolean bloqueado, int numeroIntentos) {
 		super();
-		IdUsuario = idUsuario;
+		
 		NombreUsuario = nombreUsuario;
 		ApellidoUsuario = apellidoUsuario;
 		FechaNacimiento = fechaNacimiento;
@@ -57,6 +59,14 @@ public class Usuarios_Registrados implements Serializable {
 		NumeroIntentos = numeroIntentos;
 	}
 
+	
+	
+	public String getCodidocumento() {
+		return Codidocumento;
+	}
+	public void setCodidocumento(String codidocumento) {
+		Codidocumento = codidocumento;
+	}
 	public String getTipoDocumento() {
 		return TipoDocumento;
 	}
@@ -65,11 +75,11 @@ public class Usuarios_Registrados implements Serializable {
 		TipoDocumento = tipoDocumento;
 	}
 
-	public int getIdUsuario() {
+	public String getIdUsuario() {
 		return IdUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(String idUsuario) {
 		IdUsuario = idUsuario;
 	}
 

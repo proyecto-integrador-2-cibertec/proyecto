@@ -8,5 +8,5 @@ public interface UsuarioDAO  {
 	public boolean IniciarSesion(String correo, String password);
 	public boolean RegistrarUsuarios(Usuarios_Registrados bean);
 	
-
+	
 }
