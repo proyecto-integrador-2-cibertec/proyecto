@@ -3,6 +3,7 @@ package Datos;
 import java.sql.*;
 
 import Modelo.Usuarios;
+import Modelo.Usuarios_Registrados;
 import Negocio.UsuarioDAO;
 import utils.MySqlConexion;
 
@@ -33,16 +34,12 @@ public class MetodosUsuarios implements UsuarioDAO {
 		
 	}
 	
-	public boolean RegistrarUsuarios(Usuarios bean) {
+	public boolean RegistrarUsuarios(Usuarios_Registrados bean) {
 		
 		
 		try
         {
 			
-<<<<<<< HEAD
-=======
-			PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
->>>>>>> 7d887b793ec98210f0e3c58fff16628ec73abcd0
 			
 			
 					
@@ -55,20 +52,12 @@ public class MetodosUsuarios implements UsuarioDAO {
             preparedStatement.setString(5, bean.getCorreo());
             preparedStatement.setString(6, bean.getPassword());
             preparedStatement.setString(7, bean.getCodigoPais());
-<<<<<<< HEAD
             preparedStatement.setString(8, bean.getCodidocumento());
             preparedStatement.setString(9, bean.getTipoDocumento());
             preparedStatement.setString(10, bean.getNumeroDocumento());
            
             preparedStatement.executeUpdate();
-            System.out.println("E----1");
-=======
-            preparedStatement.setString(8, bean.getCodigoDocumento());
-            preparedStatement.setInt(9, bean.getNumeroDocumento());
            
-            preparedStatement.executeUpdate();
-            
->>>>>>> 7d887b793ec98210f0e3c58fff16628ec73abcd0
             return true;
         } 
         catch (SQLException e) 
@@ -82,5 +71,6 @@ public class MetodosUsuarios implements UsuarioDAO {
 	
 	}
 
+	
 	
 }

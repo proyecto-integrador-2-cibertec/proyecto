@@ -2,6 +2,7 @@ package Negocio;
 
 import Datos.MetodosUsuarios;
 import Modelo.Usuarios;
+import Modelo.Usuarios_Registrados;
 
 public class UsuarioNegocio implements UsuarioDAO {
 	
@@ -14,7 +15,7 @@ public class UsuarioNegocio implements UsuarioDAO {
 	}
 
 	@Override
-	public boolean RegistrarUsuarios(Usuarios bean) {
+	public boolean RegistrarUsuarios(Usuarios_Registrados bean) {
 		
 		return metodo.RegistrarUsuarios(bean);
 	}
