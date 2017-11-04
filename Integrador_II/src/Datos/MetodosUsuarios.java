@@ -3,6 +3,7 @@ package Datos;
 import java.sql.*;
 
 import Modelo.Usuarios;
+import Modelo.Usuarios_Registrados;
 import Negocio.UsuarioDAO;
 import utils.MySqlConexion;
 
@@ -33,24 +34,38 @@ public class MetodosUsuarios implements UsuarioDAO {
 		
 	}
 	
-	public void RegistrarUsuarios(Usuarios bean) {
+	public boolean RegistrarUsuarios(Usuarios_Registrados bean) {
 		
-		try {
-			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement(
-					"insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
-			psta.setString(1, bean.getNombreUsuario());
-			psta.setString(2, bean.getApellidoUsuario());
-			psta.setString(3, bean.getFechaNacimiento());
-			psta.setString(4, bean.getCorreo());
-			psta.setString(5, bean.getPassword());
-			psta.setString(6, bean.getCodigoPais());
-			psta.setString(7, bean.getCodigoDocumento());
-			psta.setInt(8, bean.getNumeroDocumento());
-			psta.executeUpdate();
+		
+		try
+        {
+					
 			
+			PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc,tipo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
 			
-		} catch (Exception e) {
+            preparedStatement.setInt(1, bean.getIdUsuario());
+            preparedStatement.setString(2, bean.getNombreUsuario());
+            preparedStatement.setString(3, bean.getApellidoUsuario());
+            preparedStatement.setString(4, bean.getFechaNacimiento());
+            preparedStatement.setString(5, bean.getCorreo());
+            preparedStatement.setString(6, bean.getPassword());
+            preparedStatement.setString(7, bean.getCodigoPais());
+            preparedStatement.setString(8, bean.getTipoDocumento());
+            preparedStatement.setString(9, bean.getNumeroDocumento());
+           
+            preparedStatement.executeUpdate();
+            return true;
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("Error insertando al usuario: " + e.getMessage());
+            return false;
+        }
+		
+		
 			
-		}
+	
 	}
+
+	
 }
