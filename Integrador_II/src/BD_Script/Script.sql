@@ -263,7 +263,7 @@ INSERT INTO paises VALUES
 
 create table tipo_documento(
 codigo_doc varchar(2) not null,
-nombre_doc varchar(50) not null,
+tipo_doc varchar(50) not null,
 primary key(codigo_doc)
 );
 
@@ -278,7 +278,8 @@ correo_usuario varchar(50) not null,
 pass_usuario varchar(50) not null,
 codigo_pais varchar(2) NOT NULL,
 codigo_doc varchar(2) not null,
-num_doc int not null,
+tipo_doc varchar(10) not null,
+num_doc varchar(20) null,
 admin bit not null default 0,
 bloqueado bit not null default 0,
 num_intentos int not null default 3,
@@ -289,10 +290,8 @@ foreign key (codigo_pais) references paises(codigo_pais),
 foreign key (codigo_doc) references tipo_documento(codigo_doc)
 );
 
-insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1',72628132,1,0,3);
-insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1',12345678);
+insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','DNI','72628132',1,0,3);
+insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc,tipo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','DNI','12345678');
 
 select * from usuarios;
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
-
-
