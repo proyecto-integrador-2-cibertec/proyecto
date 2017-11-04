@@ -70,10 +70,7 @@ public class ServletUsuario extends HttpServlet {
 		int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
 
         //TODO implementar validación del formulario
-		Usuarios bean =new Usuarios(correo,password,nombre,apellido,fecha_nacimiento,pais,tipo_doc,numero_doc);
-		 
-        MySqlConexion con = new MySqlConexion();
-      
+		Usuarios bean =new Usuarios(correo,password,nombre,apellido,fecha_nacimiento,pais,tipo_doc,numero_doc);      
         UsuarioNegocio userDaoImpl = new UsuarioNegocio();
         
         boolean status = userDaoImpl.RegistrarUsuarios(bean);
@@ -86,12 +83,6 @@ public class ServletUsuario extends HttpServlet {
         {
             System.out.println("Usuario no registrado");
         }
-	/*	if(negocio.RegistrarUsuarios(bean);) {
-			request.getRequestDispatcher("index.html").forward(request, response);
-		}
-		else {
-			request.getRequestDispatcher("error.jsp").forward(request, response);
-		}*/
 		
 	}
 
