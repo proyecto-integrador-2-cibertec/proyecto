@@ -82,6 +82,7 @@ public class ServletUsuario extends HttpServlet {
         else 
         {
             System.out.println("Usuario no registrado");
+            request.getRequestDispatcher("Registro_Cliente.jsp").forward(request, response);
             
         }
 		

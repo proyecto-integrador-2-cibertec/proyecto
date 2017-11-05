@@ -36,12 +36,21 @@ public class MetodosUsuarios implements UsuarioDAO {
 	public boolean RegistrarUsuarios(Usuarios bean) {
 		
 		
-		try
-        {
-					
-			
-			PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
-			
+		try  {
+			Connection con = new MySqlConexion().getConexion();
+	        Statement stm = con.createStatement();
+	        ResultSet rs = stm.executeQuery("select validar('admin@hotmail.com1','121')");
+	        
+	        if(rs.last()){
+	        	 return false;
+	        }
+	        else{
+	            //No Existe
+	       
+			PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");       
+			preparedStatement.executeUpdate();                     
+      
+				
             preparedStatement.setString(1, bean.getNombreUsuario());
             preparedStatement.setString(2, bean.getApellidoUsuario());
             preparedStatement.setString(3, bean.getFechaNacimiento());
@@ -49,10 +58,10 @@ public class MetodosUsuarios implements UsuarioDAO {
             preparedStatement.setString(5, bean.getPassword());
             preparedStatement.setString(6, bean.getCodigoPais());
             preparedStatement.setString(7, bean.getCodigoDocumento());
-            preparedStatement.setInt(8, bean.getNumeroDocumento());
-           
+            preparedStatement.setInt(8, bean.getNumeroDocumento());   
             preparedStatement.executeUpdate();
             
+			}
             return true;
         } 
         catch (SQLException e) 
