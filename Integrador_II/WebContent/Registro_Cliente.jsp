@@ -93,7 +93,8 @@
                         %>
                         </select>
                      
-                    </div>     
+                    </div>  
+                       
                      <div class="form-group">
                         <label for="text-input">Número de Documento</label>
                         <input type="text" placeholder="Ingrese Número de documento" class="form-control" name="numero_doc"  id="text-input">
@@ -103,13 +104,11 @@
                     <div class="help"></div>
                      
                        
- 
-                   
-                </form>  
-              
-            </div>
-              
+                         
        </div>
+                   
+    </form>  
+          
 
 </body>
 </html>

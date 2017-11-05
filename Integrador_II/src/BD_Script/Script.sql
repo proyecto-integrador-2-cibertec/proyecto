@@ -280,7 +280,6 @@ correo_usuario varchar(50) not null,
 pass_usuario varchar(50) not null,
 codigo_pais varchar(2) NOT NULL,
 codigo_doc varchar(2) not null,
-tipo_doc varchar(10) not null,
 num_doc varchar(20) null,
 admin bit not null default 0,
 bloqueado bit not null default 0,
@@ -292,9 +291,30 @@ foreign key (codigo_pais) references paises(codigo_pais),
 foreign key (codigo_doc) references tipo_documento(codigo_doc)
 );
 
-insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','DNI','72628132',1,0,3);
-insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc,tipo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','DNI','12345678');
+insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','72628132',1,0,3);
+insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
+
+select * from usuarios where correo_usuario or num_doc;
+
 
 
 select * from usuarios;
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
+
+delete  from usuarios where correo_usuario='admin@hotmail.com';
+
+select validar('admin@hotmail.com1','121');
+
+DELIMITER //
+
+CREATE  FUNCTION validar(correo varchar(20), num varchar(20)) RETURNS int
+BEGIN
+    if exists(select nom_usuario from usuarios where correo_usuario=correo or num_doc = num)
+    then
+        RETURN 1;
+    else 
+        RETURN 0;
+    end if;
+END
+
+//

@@ -77,12 +77,13 @@ public class ServletUsuario extends HttpServlet {
         if(status)
         {
             System.out.println("Usuario registrado");
-            request.getRequestDispatcher("login.html").forward(request, response);
+            request.getRequestDispatcher("index.html").forward(request, response);
         }
         else 
         {
-            System.out.println("Usuario no registrado");
-            request.getRequestDispatcher("Registro_Cliente.jsp").forward(request, response);
+        	request.getRequestDispatcher("error2.jsp").forward(request, response);
+          
+           
             
         }
 		

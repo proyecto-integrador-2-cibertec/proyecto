@@ -50,9 +50,9 @@ form input {
   outline: none;
   border: 1px solid #ccc;
 }
-form group input {
+form-horizontal .container .form-group #text-input {
 	display: block;
-  width: 50%;
+  width: 20%;
   height:10%;
   margin-left: 20px;
   padding: 20px 20px;
