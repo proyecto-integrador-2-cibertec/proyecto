@@ -96,9 +96,9 @@
                     </div>     
                      <div class="form-group">
                         <label for="text-input">Número de Documento</label>
-                        <input type="text" placeholder="Número de documento" class="form-control" name="numero_doc"  id="text-input">
+                        <input type="text" placeholder="Ingrese Número de documento" class="form-control" name="numero_doc"  id="text-input">
                     </div>  
-                    <input type="hidden" value="registrar_usuario" name="metodo" >
+                    <input type="hidden" value="registrar_usuario" name="" >
                     <button class="btn btn-danger">Registrar</button>
                     <div class="help"></div>
                      
