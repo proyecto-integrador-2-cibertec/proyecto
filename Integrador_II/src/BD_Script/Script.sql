@@ -293,7 +293,8 @@ foreign key (codigo_doc) references tipo_documento(codigo_doc)
 );
 
 insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','DNI','72628132',1,0,3);
-insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
+insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc,tipo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','DNI','12345678');
+
 
 select * from usuarios;
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
