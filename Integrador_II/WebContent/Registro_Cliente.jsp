@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
     <!-- Bootstrap CSS -->
-    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -27,7 +27,6 @@
  </head>
     <body>
     <form class="form-horizontal" role="form" action="ServletUsuario" >
-     <div class="form-group">
        <div class="container">
         <div class="help"></div>
       
@@ -37,21 +36,13 @@
                 canjear pasajes y acceder a exclusivos beneficios.</p>
          </div>
         <div class="container">
-         <img src="">
-         
-                  <div class="form-group">
-                       <label for="text-input">Correo</label>
-                       <input type="text" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
-                    </div>
-                    
-                     <div class="form-group">
-                          <label for="text-input">Contraseña</label>
-                          <input type="password" placeholder="Escribe tu contraseña aquí" class="form-control" name="password"  id="text-input">
-                    </div>
+                                
                   <div class="form-group">
                        <label for="text-input">Nombre</label>
                        <input type="text" placeholder="Escribe tu nombre aquí" class="form-control" name="nombre"  id="text-input">
-                    </div>
+                  </div>
+                  
+                    
                     <div class="form-group">
                        <label for="text-input">Apellido</label>
                        <input type="text" placeholder="Escribe tu apellido aquí" class="form-control" name="apellido"  id="text-input">
@@ -61,7 +52,17 @@
                         <label for="text-input">Fecha de Nacimiento</label>
                         <input type="date" class="form-control"  name="fecha_nacimiento" id="text-input">
                     </div>
-
+                    
+                      <div class="form-group">
+                       <label for="text-input">Correo</label>
+                       <input type="text" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
+                    </div>
+                    
+                     <div class="form-group">
+                          <label for="text-input">Contraseña</label>
+                          <input type="password" placeholder="Escribe tu contraseña aquí" class="form-control" name="password"  id="text-input">
+                    </div>
+                    
                      <div class="form-group">
                         <label for="text-input">Pais</label>
                         <select name="pais" class="form-control" >
@@ -70,7 +71,7 @@
                         	ArrayList <Paises>lista=negocio.ListarPaises();
                         	for(Paises aux:lista){
                         		%>
-                        		<option value="<%=aux.getNombrePais() %>"> <%=aux.getNombrePais()%></option>
+                        		<option value="<%=aux.getCodigoPais() %>"> <%=aux.getNombrePais()%></option>
                         		<%
                         	}
                         %>
@@ -86,7 +87,7 @@
                         	ArrayList <TipoDocumento>listaTD = negocioTD.ListarDocumentos();
                         	for(TipoDocumento aux:listaTD){
                         		%>
-                        		<option value="<%=aux.getNombreDocumento()%>"> <%=aux.getNombreDocumento()%></option>
+                        		<option value="<%=aux.getCodigoDocumento()%>"> <%=aux.getNombreDocumento()%></option>
                         		<%
                         	}
                         %>

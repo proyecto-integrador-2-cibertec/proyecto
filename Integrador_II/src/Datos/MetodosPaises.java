@@ -15,7 +15,7 @@ public class MetodosPaises implements PaisesDAO{
 		ArrayList<Paises> lista = new ArrayList<Paises>();
 		
 		try {
-			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select * from paises");
+			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select * from paises order by nombre_pais asc;");
 			ResultSet rs = psta.executeQuery();
 			
 			while(rs.next()) {

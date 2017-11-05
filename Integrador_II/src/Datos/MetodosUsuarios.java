@@ -42,15 +42,14 @@ public class MetodosUsuarios implements UsuarioDAO {
 			
 			PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
 			
-            preparedStatement.setInt(1, bean.getIdUsuario());
-            preparedStatement.setString(2, bean.getNombreUsuario());
-            preparedStatement.setString(3, bean.getApellidoUsuario());
-            preparedStatement.setString(4, bean.getFechaNacimiento());
-            preparedStatement.setString(5, bean.getCorreo());
-            preparedStatement.setString(6, bean.getPassword());
-            preparedStatement.setString(7, bean.getCodigoPais());
-            preparedStatement.setString(8, bean.getCodigoDocumento());
-            preparedStatement.setInt(9, bean.getNumeroDocumento());
+            preparedStatement.setString(1, bean.getNombreUsuario());
+            preparedStatement.setString(2, bean.getApellidoUsuario());
+            preparedStatement.setString(3, bean.getFechaNacimiento());
+            preparedStatement.setString(4, bean.getCorreo());
+            preparedStatement.setString(5, bean.getPassword());
+            preparedStatement.setString(6, bean.getCodigoPais());
+            preparedStatement.setString(7, bean.getCodigoDocumento());
+            preparedStatement.setInt(8, bean.getNumeroDocumento());
            
             preparedStatement.executeUpdate();
             

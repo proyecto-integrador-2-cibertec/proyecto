@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import Modelo.Usuarios;
 import Negocio.UsuarioNegocio;
-import utils.MySqlConexion;
 
 /**
  * Servlet implementation class ServletUsuario
@@ -60,17 +59,17 @@ public class ServletUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		String correo = request.getParameter("correo");
-		String password = request.getParameter("password");
 		String nombre = request.getParameter("nombre");
 		String apellido= request.getParameter("apellido");
 		String fecha_nacimiento = request.getParameter("fecha_nacimiento");
+		String correo = request.getParameter("correo");
+		String password = request.getParameter("password");
 		String pais = request.getParameter("pais");
 		String tipo_doc = request.getParameter("tipo_doc");
 		int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
 
         //TODO implementar validación del formulario
-		Usuarios bean =new Usuarios(correo,password,nombre,apellido,fecha_nacimiento,pais,tipo_doc,numero_doc);      
+		Usuarios bean =new Usuarios(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,numero_doc);      
         UsuarioNegocio userDaoImpl = new UsuarioNegocio();
         
         boolean status = userDaoImpl.RegistrarUsuarios(bean);
@@ -78,10 +77,12 @@ public class ServletUsuario extends HttpServlet {
         if(status)
         {
             System.out.println("Usuario registrado");
+            request.getRequestDispatcher("login.html").forward(request, response);
         }
         else 
         {
             System.out.println("Usuario no registrado");
+            
         }
 		
 	}

@@ -261,6 +261,8 @@ INSERT INTO paises VALUES
 ('CU', 'Cuba'),
 ('ET', 'Ethiopia');
 
+select * from paises order by nombre_pais asc;
+
 create table tipo_documento(
 codigo_doc varchar(2) not null,
 tipo_doc varchar(50) not null,
