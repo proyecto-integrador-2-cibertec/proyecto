@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Modelo.Reserva;
 import Modelo.Usuarios;
+import Negocio.ReservaNegocio;
 import Negocio.UsuarioNegocio;
 
 /**
@@ -38,6 +40,11 @@ public class ServletUsuario extends HttpServlet {
 	 if(metodo.equals("registrar_usuario")) {
 		 registrar_usuario(request,response);
 	  }
+	 if(metodo.equals("registrar_reserva")) {
+		 registrar_reserva(request,response);
+	  }
+	 
+	 
 	}
 	protected void ingresar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -77,7 +84,7 @@ public class ServletUsuario extends HttpServlet {
         if(status)
         {
             System.out.println("Usuario registrado");
-            request.getRequestDispatcher("index.html").forward(request, response);
+            request.getRequestDispatcher("Registro_Cliente.html").forward(request, response);
         }
         else 
         {
@@ -87,6 +94,48 @@ public class ServletUsuario extends HttpServlet {
             
         }
 		
+	}
+
+	
+	protected void registrar_reserva(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	try {
+		
+		String nombre="R0003";
+	//	String nombre = request.getParameter("Idre");
+		String apellido= request.getParameter("numero_r");
+		String fecha_nacimiento = request.getParameter("nombre_r");
+		String correo = request.getParameter("tipo_r");
+		String password = request.getParameter("fechas_r");
+		String pais = request.getParameter("pais_r");
+		String tipo_doc = request.getParameter("ciudado_r");
+		String tipo_doc2 = request.getParameter("ciudadf_r");
+	//	int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
+
+        //TODO implementar validación del formulario
+		Reserva bean =new Reserva(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
+        ReservaNegocio userDaoImpl = new ReservaNegocio();
+        
+        boolean status = userDaoImpl.RegistrarReserva(bean);
+        
+        if(status)
+        {
+            System.out.println("Reserva registrado");
+            request.getRequestDispatcher("Registro_Reserva.jsp").forward(request, response);
+        }
+        else 
+        {
+        	request.getRequestDispatcher("error2.jsp").forward(request, response);
+          
+           
+            
+        }
+        
+        
+	} catch (Exception e) {
+		
+		 }
 	}
 
 	/**

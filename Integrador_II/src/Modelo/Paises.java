@@ -5,6 +5,14 @@ public class Paises {
 	private String CodigoPais;
 	private String NombrePais;
 	
+	
+	
+	
+
+	public Paises() {
+		super();
+	}
+
 	public Paises(String codigoPais, String nombrePais) {
 		super();
 		CodigoPais = codigoPais;

@@ -14,6 +14,12 @@ public class PaisesNegocio implements PaisesDAO{
 		
 		return metodo.ListarPaises();
 	}
+
+	@Override
+	public ArrayList<Paises> ListarCiudades(String cod) {
+		// TODO Auto-generated method stub
+		return metodo.ListarCiudades(cod);
+	}
 	
 	
 

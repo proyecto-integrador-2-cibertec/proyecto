@@ -261,6 +261,27 @@ INSERT INTO paises VALUES
 ('CU', 'Cuba'),
 ('ET', 'Ethiopia');
 
+
+
+create table ciudades (
+id_ciudades int not null primary key auto_increment,
+  codigo_pais varchar(2) ,
+  nombre_ciudad varchar(50) NOT NULL,
+      
+  foreign key (codigo_pais) references paises(codigo_pais)
+);
+
+insert into ciudades values(null,'PE', 'Lima');
+insert into ciudades values(null,'PE', 'Arequipa');
+insert into ciudades values(null,'PE', 'Cusco');
+insert into ciudades values(null,'CU', 'Habana');
+insert into ciudades values(null,'CU', 'Varadero');
+insert into ciudades values(null,'CU', 'Cienfuegos');
+
+
+select * from ciudades;
+
+
 select * from paises order by nombre_pais asc;
 
 create table tipo_documento(
@@ -280,6 +301,140 @@ correo_usuario varchar(50) not null,
 pass_usuario varchar(50) not null,
 codigo_pais varchar(2) NOT NULL,
 codigo_doc varchar(2) not null,
+num_doc varchar(20) not null,
+admin bit not null default 0,
+bloqueado bit not null default 0,
+num_intentos int not null default 3,
+check(admin in(0,1)),
+check(bloqueado in(0,1)),
+check (num_intentos>0),
+foreign key (codigo_pais) references paises(codigo_pais),
+foreign key (codigo_doc) references tipo_documento(codigo_doc)
+);
+
+insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','72628132',1,0,3);
+insert into usuarios values(null,'admin', 'administrator', '1000-10-06','1@1.1', '1234', 'PE', 'D1','12345678',1,0,3);
+insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
+
+insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (?,'','5','2','1',0,0,0);
+
+select * from usuarios;
+
+
+
+select * from usuarios;
+select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
+
+delete  from usuarios where correo_usuario='admin@hotmail.com';
+
+select validar('admin@hotmail.com','121');
+
+select validar('admin77@hotmail.com','1218')
+
+DELIMITER //
+CREATE  FUNCTION validar(correo varchar(20), num varchar(20)) RETURNS int
+BEGIN
+    if exists(select nom_usuario from usuarios where correo_usuario=correo or num_doc = num)
+    then
+        RETURN 1;
+    else 
+        RETURN 0;
+    end if;
+END
+//
+
+
+
+select validar('admin@hotmail.com','121');
+
+
+
+
+create table Tipo_Pasaje(
+id_tipo_p int not null primary key auto_increment,
+nombre_p varchar(20) not null
+);
+
+insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Economico');
+insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Vip');
+insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Media');
+
+
+drop table Reservar_Vuelo
+
+create table Reservar_Vuelo(
+id_reserva_r varchar(20) primary key,
+num_doc varchar(20) not null,
+nom_pasajero_r varchar(20) not null,
+tipo_pasaje_r varchar(10) not null,
+fecha_salida_r date not null,
+codigo_pais_r varchar(20) NOT NULL,
+ciudad_origen_r varchar(20) NOT NULL,
+ciudad_destino_r varchar(20)not null
+);
+
+
+
+insert into Reservar_Vuelo values('R0001','11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 'Cusco');
+
+insert into Reservar_Vuelo (id_reserva_r,num_doc,nom_pasajero_r,tipo_pasaje_r,fecha_salida_r,codigo_pais_r,ciudad_origen_r,ciudad_destino_r)values(select sp_Generar_Reserva(),'22222222', 'pasajero2', 'Vip', '1100-10-05','Lima', 'Havana');
+
+
+insert into Reservar_Vuelo values(select sp_Generar_Reserva(),'22222222', 'pasajero2', 'Vip', '2000-11-16','PE'+'Lima', 'Havana');
+
+
+select * from Reservar_Vuelo;
+
+select execute sp_Generar_Reserva()+'-';
+
+DROP PROCEDURE IF EXISTS sp_Generar_Reserva
+DELIMITER //
+CREATE function sp_Generar_Reserva() RETURNS VARCHAR(20)
+BEGIN
+    DECLARE contador INT;
+    DECLARE p_codigo_secundario varchar(20);
+    BEGIN
+        SET contador= (SELECT COUNT(*)+1 FROM Reservar_Vuelo); 
+        IF(contador<10)THEN
+            SET p_codigo_secundario= CONCAT('R000',contador);
+             RETURN p_codigo_secundario;
+            ELSE IF(contador<100) THEN
+                SET p_codigo_secundario= CONCAT('R00',contador);
+                 RETURN p_codigo_secundario;
+                ELSE IF(contador<1000)THEN
+                    SET p_codigo_secundario= CONCAT('R0',contador);
+                     RETURN p_codigo_secundario;
+                END IF;
+            END IF;
+        END IF; 
+        
+    END;
+END
+//
+
+DELIMITER // ;
+
+ 
+DELIMITER //
+
+CREATE function holaMundo() RETURNS VARCHAR(20)
+BEGIN
+    RETURN ‘HolaMundo’;
+END
+//
+
+
+
+create table comprar_pasajes(
+id_pasajes_c int not null primary key auto_increment,
+origen_c varchar(50) not null,
+destino_c varchar(50) not null,
+fecha_ida_c date not null,
+fecha_salida_c date not null,
+correo_usuario varchar(50) not null,
+pass_usuario varchar(50) not null,
+codigo_pais varchar(2) NOT NULL,
+codigo_doc varchar(2) not null,
 num_doc varchar(20) null,
 admin bit not null default 0,
 bloqueado bit not null default 0,
@@ -292,29 +447,7 @@ foreign key (codigo_doc) references tipo_documento(codigo_doc)
 );
 
 insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','72628132',1,0,3);
+insert into usuarios values(null,'admin', 'administrator', '1000-10-06','1@1.1', '1234', 'PE', 'D1','12345678',1,0,3);
 insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
 
-select * from usuarios where correo_usuario or num_doc;
-
-
-
-select * from usuarios;
-select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
-
-delete  from usuarios where correo_usuario='admin@hotmail.com';
-
-select validar('admin@hotmail.com1','121');
-
-DELIMITER //
-
-CREATE  FUNCTION validar(correo varchar(20), num varchar(20)) RETURNS int
-BEGIN
-    if exists(select nom_usuario from usuarios where correo_usuario=correo or num_doc = num)
-    then
-        RETURN 1;
-    else 
-        RETURN 0;
-    end if;
-END
-
-//
+insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (?,'','5','2','1',0,0,0);

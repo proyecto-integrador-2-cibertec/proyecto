@@ -1,6 +1,7 @@
 <%@page import="Negocio.*"%>
 <%@page import="Modelo.*"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,46 +27,59 @@
 <title>Registro de Cliente  </title>
  </head>
     <body>
-    <form class="form-horizontal" role="form" action="ServletUsuario" >
-       <div class="container">
+    <form class="form-horizontal" role="form" action="ServletUsuario" method="post" >
+   <div class="container"margin-top="5%"  >
+      <div class="container">
         <div class="help"></div>
-      
-            <h2 class="text-uppercase text-center">Inscríbete</h2>
+                  <h2 class="text-uppercase text-center">Inscríbete</h2>
              <div class="help"></div>
             <p class="lead text-center">Únete, de manera fácil y rápida, a nuestro programa de viajero frecuente. Como socio podrás acumular kilómetros, 
                 canjear pasajes y acceder a exclusivos beneficios.</p>
-         </div>
-        <div class="container">
-                                
-                  <div class="form-group">
-                       <label for="text-input">Nombre</label>
-                       <input type="text" placeholder="Escribe tu nombre aquí" class="form-control" name="nombre"  id="text-input">
-                  </div>
-                  
-                    
-                    <div class="form-group">
-                       <label for="text-input">Apellido</label>
-                       <input type="text" placeholder="Escribe tu apellido aquí" class="form-control" name="apellido"  id="text-input">
-                    </div>
-                   
-                    <div class="form-group">
-                        <label for="text-input">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control"  name="fecha_nacimiento" id="text-input">
-                    </div>
-                    
-                      <div class="form-group">
-                       <label for="text-input">Correo</label>
-                       <input type="text" placeholder="usuario@example.com" class="form-control" name="correo" id="text-input">
-                    </div>
-                    
-                     <div class="form-group">
-                          <label for="text-input">Contraseña</label>
-                          <input type="password" placeholder="Escribe tu contraseña aquí" class="form-control" name="password"  id="text-input">
-                    </div>
-                    
-                     <div class="form-group">
-                        <label for="text-input">Pais</label>
-                        <select name="pais" class="form-control" >
+        </div>
+     
+         <div class="help"></div>
+     <div class="container">
+    
+       <div class="help"></div>
+      <div class="form-group">
+      
+             
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
+  <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" required >
+</div>
+    <div class="help"></div>
+    
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
+  <input type="text" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido" required>
+</div>
+ <div class="help"></div>
+ 
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Seleccione.</span>
+  <input type="Date" class="form-control" placeholder="fecha de nacimiento" aria-label="Username" aria-describedby="basic-addon1" name="fecha_nacimiento" required >
+</div>
+  
+
+    <div class="help"></div>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon1">Ingrese......</span>
+  <input type="text" class="form-control" placeholder="correo@example.com" aria-label="Recipient's username" aria-describedby="basic-addon1" name="correo" required>
+  
+</div>
+
+    <div class="help"></div>
+
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
+  <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required >
+</div>
+
+ <div class="help"></div>
+     <div class="form-group">
+                        <label for="text-input">Selecione Pais</label>
+                        <select name="pais" class="form-control"    >
                         <%
                         	PaisesNegocio negocio = new PaisesNegocio();
                         	ArrayList <Paises>lista=negocio.ListarPaises();
@@ -74,12 +88,15 @@
                         		<option value="<%=aux.getCodigoPais() %>"> <%=aux.getNombrePais()%></option>
                         		<%
                         	}
-                        %>
+                        	
+                 	  
+
+
+%>
                         </select>
               
                     </div>
-                           
-                     <div class="form-group">
+                   <div class="form-group">
                         <label for="text-input">Tipo de Documento</label>
                         <select name="tipo_doc" class="form-control" >
                         <%
@@ -95,20 +112,32 @@
                      
                     </div>  
                        
-                     <div class="form-group">
-                        <label for="text-input">Número de Documento</label>
-                        <input type="text" placeholder="Ingrese Número de documento" class="form-control" name="numero_doc"  id="text-input">
-                    </div>  
+
+ <div class="help"></div>
+
+
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Ingrese...</span>
+  <input type="text" class="form-control" placeholder="Numero Documento" aria-label="Username" aria-describedby="basic-addon1"name="numero_doc" required>
+</div>
+
+
+
+                   
                     <input type="hidden" value="registrar_usuario" name="metodo" >
                     <button class="btn btn-danger">Registrar</button>
-                    <div class="help"></div>
-                     
-                       
-                         
-       </div>
-                   
+                    <div class="help"></div>   
+    </div> 
+     </div>  
+     
+     
+     </div>             
     </form>  
           
+
+    
+      
+
 
 </body>
 </html>
