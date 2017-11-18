@@ -451,3 +451,31 @@ insert into usuarios values(null,'admin', 'administrator', '1000-10-06','1@1.1',
 insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
 
 insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (?,'','5','2','1',0,0,0);
+
+
+
+
+
+
+
+create table cotizar(
+id_cotizar int not null primary key auto_increment,
+origen_c varchar(50) not null,
+destino_c varchar(50) not null,
+fecha_ida_c date not null,
+fecha_salida_c date not null,
+hora_s_c varchar(50) not null,
+hora_ll_c varchar(50) not null,
+id_tipo_p_c int not null references Tipo_Pasaje,
+precio_c int NOT NULL
+
+);
+
+
+insert into cotizar values(null,'Lima', 'Cusco', '1997-10-06', '1904-11-05','10:10', '17:20', 1,3050);
+insert into cotizar values(null,'Lima', 'Tacna', '1991-11-05', '1914-11-05','10:10', '17:20', 2,3050);
+
+insert into cotizar(id_cotizar, origen_c, destino_c, fecha_ida_c, fecha_salida_c, hora_s_c, hora_ll_c, id_tipo_p_c, precio_c) values (null,'Cusco', 'Tacna', '1991-11-05', '1914-11-05','10:10', '17:20', 2,2050);
+
+select * from cotizar;
+select count(*) from cotizar;

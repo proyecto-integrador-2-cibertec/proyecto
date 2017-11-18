@@ -31,7 +31,7 @@
    <div class="container"margin-top="5%"  >
       <div class="container">
         <div class="help"></div>
-                  <h2 class="text-uppercase text-center">Inscríbete</h2>
+                  <h2 class="text-uppercase text-center">Registrar tu Vuelo</h2>
              <div class="help"></div>
             <p class="lead text-center">Únete, de manera fácil y rápida, a nuestro programa de viajero frecuente. Como socio podrás acumular kilómetros, 
                 canjear pasajes y acceder a exclusivos beneficios.</p>

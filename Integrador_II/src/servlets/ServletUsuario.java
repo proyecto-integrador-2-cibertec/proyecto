@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Modelo.Reserva;
 import Modelo.Usuarios;
+import Negocio.CotizarNegocio;
 import Negocio.ReservaNegocio;
 import Negocio.UsuarioNegocio;
 
@@ -43,7 +44,9 @@ public class ServletUsuario extends HttpServlet {
 	 if(metodo.equals("registrar_reserva")) {
 		 registrar_reserva(request,response);
 	  }
-	 
+	 if(metodo.equals("listar_cotizar")) {
+		 listar_cotizar(request,response);
+	  }
 	 
 	}
 	protected void ingresar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -141,6 +144,52 @@ public class ServletUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	
+	protected void listar_cotizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	try {
+		
+		String nombre="R0003";
+	//	String nombre = request.getParameter("Idre");
+		String apellido= request.getParameter("numero_r");
+		String fecha_nacimiento = request.getParameter("nombre_r");
+		String correo = request.getParameter("tipo_r");
+		String password = request.getParameter("fechas_r");
+		String pais = request.getParameter("pais_r");
+		String tipo_doc = request.getParameter("ciudado_r");
+		String tipo_doc2 = request.getParameter("ciudadf_r");
+	//	int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
+
+        //TODO implementar validación del formulario
+		Reserva bean =new Reserva(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
+        ReservaNegocio userDaoImpl = new ReservaNegocio();
+        
+        CotizarNegocio userDao=new CotizarNegocio();
+        
+        
+        
+        boolean status = userDaoImpl.RegistrarReserva(bean);
+        
+        if(status)
+        {
+            System.out.println("Reserva registrado");
+            request.getRequestDispatcher("Registro_Cotizar.jsp").forward(request, response);
+        }
+        else 
+        {
+        	request.getRequestDispatcher("error2.jsp").forward(request, response);
+          
+           
+            
+        }
+        
+        
+	} catch (Exception e) {
+		
+		 }
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
