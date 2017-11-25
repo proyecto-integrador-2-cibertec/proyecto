@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.sql.*;
 import Modelo.Paises;
+import Modelo.Reserva;
 import Negocio.PaisesDAO;
 import utils.MySqlConexion;
 
@@ -23,6 +24,10 @@ public class MetodosPaises implements PaisesDAO{
 				lista.add(p);
 			}
 			
+			
+			
+			
+			
 		} catch(Exception e) {}
 		return lista;
 	}
@@ -33,11 +38,11 @@ public class MetodosPaises implements PaisesDAO{
 ArrayList<Paises> lista = new ArrayList<Paises>();
 		
 		try {
-			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select * from ciudades where codigo_pais="+cod);
+			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select nombre_ciudad from ciudades where codigo_pais="+cod);
 			ResultSet rs = psta.executeQuery();
 			
 			while(rs.next()) {
-				Paises p = new Paises(rs.getString(1), rs.getString(2));
+				Paises p = new Paises(rs.getString(1));
 				lista.add(p);
 			}
 			
@@ -45,4 +50,8 @@ ArrayList<Paises> lista = new ArrayList<Paises>();
 		return lista;
 	}
 
+	
+
+	
+	
 }

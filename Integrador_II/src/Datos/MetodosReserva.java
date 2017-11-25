@@ -22,7 +22,7 @@ public class MetodosReserva implements ReservaDAO{
 			ResultSet rs = psta.executeQuery();
 			
 			while(rs.next()) {
-				Reserva p = new Reserva(rs.getString(1), rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				Reserva p = new Reserva(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
 				lista.add(p);
 			}
 			
@@ -41,10 +41,10 @@ public boolean RegistrarReserva(Reserva bean) {
 			
 		        	   System.out.println("ingreso");
 	PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("\r\n" + 
-						"insert into Reservar_Vuelo (id_reserva_r,num_doc,nom_pasajero_r,tipo_pasaje_r,fecha_salida_r,codigo_pais_r,ciudad_origen_r,ciudad_destino_r)values(?,?,?,?,?,?,?,?)");
+						"insert into Reservar_Vuelo (null,num_doc,nom_pasajero_r,tipo_pasaje_r,fecha_salida_r,codigo_pais_r,ciudad_origen_r,ciudad_destino_r)values(null,?,?,?,?,?,?,?)");
 
 	        			
-	            preparedStatement.setString(1, bean.getId_reserva_r());
+	           // preparedStatement.setInt(1, bean.getId_reserva_r());
 	            preparedStatement.setString(2, bean.getNum_doc());
 	            preparedStatement.setString(3, bean.getNom_pasajero_r());
 	            preparedStatement.setString(4, bean.getTipo_pasaje_r());
@@ -82,13 +82,17 @@ public ArrayList<Reserva> ListarTipo_Pasaje() {
 		ResultSet rs = psta.executeQuery();
 		
 		while(rs.next()) {
-			Reserva p = new Reserva(rs.getString(1), rs.getString(2));
+			Reserva p = new Reserva(rs.getInt(1), rs.getString(2));
 			lista.add(p);
 		}
 		
 	} catch(Exception e) {}
 	return lista;
 }
+
+
+
+
 
 	
 }

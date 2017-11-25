@@ -12,4 +12,5 @@ public interface ReservaDAO {
 	public boolean RegistrarReserva(Reserva bean);
 	public ArrayList<Reserva> ListarTipo_Pasaje();
 	
+	
 }

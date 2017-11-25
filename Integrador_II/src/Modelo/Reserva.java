@@ -2,7 +2,7 @@ package Modelo;
 
 public class Reserva {
 	
-	private String id_reserva_r ;
+	private int id_reserva_r ;
 	private String num_doc ;
 	private String nom_pasajero_r;
 	private String tipo_pasaje_r;
@@ -16,9 +16,14 @@ public class Reserva {
 		}
 	
 		
-		
+
+		public Reserva(String ciudad_origen_r) {
+				super();
+				
+				this.ciudad_origen_r = ciudad_origen_r;
+			}	
 	
-	public Reserva(String id_reserva_r, String tipo_pasaje_r) {
+	public Reserva(int id_reserva_r, String tipo_pasaje_r) {
 			super();
 			this.id_reserva_r = id_reserva_r;
 			this.tipo_pasaje_r = tipo_pasaje_r;
@@ -27,7 +32,7 @@ public class Reserva {
 
 
 
-	public Reserva(String id_reserva_r, String num_doc, String nom_pasajero_r, String tipo_pasaje_r,
+	public Reserva(int id_reserva_r, String num_doc, String nom_pasajero_r, String tipo_pasaje_r,
 			String fecha_salida_r, String ciudad_origen_r, String ciudad_destino_r, String codigo_pais_r) {
 		super();
 		this.id_reserva_r = id_reserva_r;
@@ -43,14 +48,14 @@ public class Reserva {
 
 
 
-	public String getId_reserva_r() {
+	public int getId_reserva_r() {
 		return id_reserva_r;
 	}
 
 
 
 
-	public void setId_reserva_r(String id_reserva_r) {
+	public void setId_reserva_r(int id_reserva_r) {
 		this.id_reserva_r = id_reserva_r;
 	}
 

@@ -17,7 +17,7 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-       
+       <script src="js/validar.js"></script>
       <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
       <link href="./css/style_registro_cliente.css" rel="stylesheet" >
    
@@ -45,8 +45,8 @@
       
              
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="DNI" aria-label="Username" aria-describedby="basic-addon1" name="numero_r" required >
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="DNI" aria-label="Username" aria-describedby="basic-addon1" name="numero_r" onkeypress="return soloNumeros(event);" id="id_dni" required >
 </div>
     <div class="help"></div>
     
@@ -95,23 +95,37 @@ function cambio(select,s2){
 		      CU: ["Havana", "Varadero", "Santiago de cuba", "PorAlegre"],
 		    }
 	
-	var listap = ["Lima", "Arequipa", "Cusco", "Piura", "Tacna"];		      
+	var l1 = ["Lima", "Arequipa", "Cusco", "Piura", "Tacna"];		      
 		  
 	
-	 var select = document.getElementById("pais");
+	// var select = document.getElementById("pais");
 
 	  var options=document.getElementsByTagName("option");
-	  var sd=select.value;
+	 var sd=select;
 	  var ciudad = document.getElementById('ciudad')
 	    var ciudad2 = document.getElementById('ciudad2')
-	   
-	  if(sd=="PE"){
+	 
+	alert(sd);
+int jj=0;	55
+ a = ["1","2","3"];
+		  a.foreach ( function (elemento) {
+
+			  var opcion = document.createElement('option')
+		        opcion.value = a[jj]
+		        opcion.text =a[jj]
+		        ciudad2.add(opcion)
+		jj++;        
+		  });
+	
+	  if(sd=="JP"){
+		  
+		 
 		
 		  for (var j=0;j<5;j++){
 				
 			  var opcion = document.createElement('option')
-		        opcion.value = listap[j]
-		        opcion.text =listap[j]
+		        opcion.value = l1[j]
+		        opcion.text =l1[j]
 		        ciudad2.add(opcion)
 		        
 		  }
@@ -127,25 +141,52 @@ function cambio(select,s2){
 	  } 
 	    
 	    }
+	    
+	    
+
+function makeArray() {
+     var myArray = new Array(4);
+     myArray[0] = "A";
+     myArray[1] = "B";
+     myArray[2] = "C";
+     myArray[3] = "D";
+     return myArray;
+}
+function showArray(theArray){
+     var quote = "";
+     for (var i = 0; i < theArray.length; i++){
+         quote += theArray[i] + " ";
+     }
+     return quote;    
+}
+
+
+   var x = makeArray();
+   document.write(showArray(x));
+
+	    
+	    
+	    
+	    
 </Script>
 
  <div class="help"></div>
      <div class="form-group">
                         <label for="text-input">Selecione Pais</label>
-                        <select id="pais" name="pais_r" class="form-control"onchange="cambio('this.pais','ciudad')" onclick="cambio2('pais','ciudad')" >
+                        <select  id="pais" name="pais_r" class="form-control"onchange='cambio(this.value,ciudad)' >
                         <%
                         	PaisesNegocio negocio = new PaisesNegocio();
                         	ArrayList <Paises>lista=negocio.ListarPaises();
                         	for(Paises aux:lista){
+                        		
+                        		
                         		%>
                         		<option  value="<%=aux.getCodigoPais() %>"> <%=aux.getNombrePais()%></option>
+                        		
                         		<%
+                        		
                         	}
-                        	
-                        	
-
-                     
-                        	
+                        	                                               	
                         %>
                         </select>
               
@@ -157,8 +198,9 @@ function cambio(select,s2){
  <div class="help"></div>
      <div class="form-group">
                         <label for="text-input">Selecione Ciudad origen</label>
-                        <select id="ciudad" name="ciudado_r" class="form-control" >
+                        <select id="ciudad" name="ciudad" class="form-control" >
                        
+                     
                         </select>
               
                     </div>

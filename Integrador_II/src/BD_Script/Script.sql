@@ -277,10 +277,22 @@ insert into ciudades values(null,'PE', 'Cusco');
 insert into ciudades values(null,'CU', 'Habana');
 insert into ciudades values(null,'CU', 'Varadero');
 insert into ciudades values(null,'CU', 'Cienfuegos');
+insert into ciudades values(null,'AU', 'Lima');
+insert into ciudades values(null,'AU', 'Arequipa');
+insert into ciudades values(null,'AU', 'Cusco');
+insert into ciudades values(null,'CN', 'Habana');
+insert into ciudades values(null,'CN', 'Varadero');
+insert into ciudades values(null,'CN', 'Cienfuegos');
+insert into ciudades values(null,'JP', 'Lima');
+insert into ciudades values(null,'JP', 'Arequipa');
+insert into ciudades values(null,'JP', 'Cusco');
+insert into ciudades values(null,'TH', 'Habana');
+insert into ciudades values(null,'TH', 'Varadero');
+insert into ciudades values(null,'TH', 'Cienfuegos');
 
 
-select * from ciudades;
-
+select nombre_ciudad from ciudades where codigo_pais='PE';
+select nombre_ciudad from ciudades where codigo_pais='PE'
 
 select * from paises order by nombre_pais asc;
 
@@ -363,7 +375,7 @@ insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Media');
 drop table Reservar_Vuelo
 
 create table Reservar_Vuelo(
-id_reserva_r varchar(20) primary key,
+id_reserva_r int not null primary key auto_increment,
 num_doc varchar(20) not null,
 nom_pasajero_r varchar(20) not null,
 tipo_pasaje_r varchar(10) not null,
@@ -375,7 +387,7 @@ ciudad_destino_r varchar(20)not null
 
 
 
-insert into Reservar_Vuelo values('R0001','11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 'Cusco');
+insert into Reservar_Vuelo values(null,'11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 'Cusco');
 
 insert into Reservar_Vuelo (id_reserva_r,num_doc,nom_pasajero_r,tipo_pasaje_r,fecha_salida_r,codigo_pais_r,ciudad_origen_r,ciudad_destino_r)values(select sp_Generar_Reserva(),'22222222', 'pasajero2', 'Vip', '1100-10-05','Lima', 'Havana');
 
@@ -479,3 +491,167 @@ insert into cotizar(id_cotizar, origen_c, destino_c, fecha_ida_c, fecha_salida_c
 
 select * from cotizar;
 select count(*) from cotizar;
+
+
+
+
+DROP function IF EXISTS sp_Generar_Codigo
+
+DELIMITER $$
+CREATE function sp_Generar_Codigo() RETURNS VARCHAR(4)
+BEGIN
+   DECLARE contador INT ;
+    declare p_codigo_secundario varchar(4);
+    BEGIN
+        SET contador=(SELECT COUNT(*)+1 from tb_empleados); 
+        IF(contador<10)THEN
+            SET p_codigo_secundario= CONCAT('EM00',contador);
+            ELSE IF(contador<100) THEN
+                SET p_codigo_secundario= CONCAT('EM0',contador);
+                ELSE IF(contador<1000)THEN
+                    SET p_codigo_secundario= CONCAT('EM',contador);
+                END IF;
+            END IF;
+        END IF; 
+
+    END;
+return p_codigo_secundario;
+END
+$$
+
+
+
+delimiter //
+CREATE FUNCTION validaru(u varchar (10)  ,p varchar(7)) RETURNS int
+ as
+if (select count(*) from login where usuario=u and pass =p )>1
+begin 
+return 1;
+end
+else
+return -1;	
+go
+end;
+delimiter ;
+
+select validaru3 ('jjose' ,'123') as resultado ;
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+
+
+create TABLE puesto(
+    codpuesto int NOT NULL AUTO_INCREMENT,
+    nompuesto VARCHAR(40) NOT NULL,
+    PRIMARY KEY (codpuesto)
+);
+//
+insert into puesto values(null,'Gerente Logistica');//
+insert into puesto values(null,'Gerente Marketing');//
+insert into puesto values(null,'Gerente de Produccion');//
+insert into puesto values(null,'Gerente de Telecomunicaciones');//
+insert into puesto values(null,'Gerente de RRHH');//
+insert into puesto values(null,'Gerente de PLANTA');//
+
+
+
+create procedure sp_Comb_Nombre_Perfil_GP(cod int)
+select nompuesto from puesto where codpuesto=cod;//
+
+call sp_Comb_Nombre_Perfil_GP(1);
+
+/* --------------------------------------------- */
+create TABLE perfilgerentespublicos(
+    codpuesto int NOT NULL,
+    codcompetencias int not null,
+	niveldeseado int(1)not null,
+    PRIMARY KEY (codpuesto,codcompetencias),
+ key  codpuesto (codpuesto),
+  FOREIGN KEY (codpuesto) REFERENCES puesto (codpuesto),
+  FOREIGN KEY (codcompetencias) REFERENCES competencias (codcompetencias)
+      );
+insert into perfilgerentespublicos values(1,1,5);
+insert into perfilgerentespublicos values(1,2,4);
+insert into perfilgerentespublicos values(1,3,3);
+insert into perfilgerentespublicos values(1,4,2);
+insert into perfilgerentespublicos values(1,5,2);
+insert into perfilgerentespublicos values(1,6,3);
+insert into perfilgerentespublicos values(2,1,5);
+insert into perfilgerentespublicos values(2,2,4);
+insert into perfilgerentespublicos values(2,3,3);
+insert into perfilgerentespublicos values(2,4,2);
+insert into perfilgerentespublicos values(2,5,2);
+insert into perfilgerentespublicos values(2,6,3);
+insert into perfilgerentespublicos values(3,1,5);
+insert into perfilgerentespublicos values(3,2,4);
+insert into perfilgerentespublicos values(3,3,3);
+insert into perfilgerentespublicos values(3,4,2);
+insert into perfilgerentespublicos values(3,5,2);
+insert into perfilgerentespublicos values(3,6,3);
+insert into perfilgerentespublicos values(4,1,5);
+insert into perfilgerentespublicos values(4,2,1);
+insert into perfilgerentespublicos values(4,3,2);
+insert into perfilgerentespublicos values(4,4,5);
+insert into perfilgerentespublicos values(4,5,4);
+insert into perfilgerentespublicos values(4,6,2);
+insert into perfilgerentespublicos values(5,1,1);
+insert into perfilgerentespublicos values(5,2,5);
+insert into perfilgerentespublicos values(5,3,4);
+insert into perfilgerentespublicos values(5,4,3);
+insert into perfilgerentespublicos values(5,5,2);
+insert into perfilgerentespublicos values(5,6,3);
+insert into perfilgerentespublicos values(6,1,4);
+insert into perfilgerentespublicos values(6,2,4);
+insert into perfilgerentespublicos values(6,3,3);
+insert into perfilgerentespublicos values(6,4,1);
+insert into perfilgerentespublicos values(6,5,2);
+insert into perfilgerentespublicos values(6,6,2);
+
+create procedure sp_listarPerfilGerentePublico(cod int)
+select c.codpuesto,c.codcompetencias,p.nomcompetencia,c.niveldeseado from perfilgerentespublicos c inner join competencias p on p.codcompetencias= c.codcompetencias where c.codpuesto=cod;
+
+call sp_listarPerfilGerentePublico(3);
+
+
+
+create procedure sp_actualizarPerfilGerentePublico( nivel int , n1 int,n2 int)
+update perfilgerentespublicos set niveldeseado=nivel  where codpuesto=n1 and codcompetencias=n2;
+call sp_actualizarPerfilGerentePublico (5,1,1);
+
+
+
+create procedure sp_llenarcmbPerfilGP()
+select nompuesto from puesto ;
+
+
+
+create table evaluacioncualitativademetas(
+   codgerente char(7) ,
+    codmeta int ,
+    relacionconpoi varchar(50) null,
+    peso int not null ,
+	planaccion varchar(50) not null,
+    evaluacion varchar (60)null,
+PRIMARY KEY ( codgerente ,codmeta)
+      );
+      
+   insert into evaluacioncualitativademetas values( 'G100001',1,"cumplimiento de Actividades",15,"enviar los correos en su tiempo","");   
+   insert into evaluacioncualitativademetas values('G100001',2,"Empleabilidade del Personal",10,"sustentar el manejo del personal","");  
+   insert into evaluacioncualitativademetas values('G100001',3,"eficiencia de los empleado",20,"Comprobacion de sus tareas","");   
+   insert into evaluacioncualitativademetas values('G100001',4,"Accesibilidad alos recurso programados",30,"Lograr que los recursos llegue a todos","");  
+   insert into evaluacioncualitativademetas values('G100001',5,"supervision adecuada a los obrero",6,"Inspeccion adecuada","");   
+  
+  
+create procedure sp_evaluacioncaulitava(cod char(7))
+select * from evaluacioncualitativademetas where codgerente='G100001' ;
+
+call sp_evaluacioncaulitava ('G100001');
+      select * from  evaluacioncualitativademetas
+
+select codgerente,codmeta ,relacionconpoi,peso,planaccion,evaluacion from  evaluacioncualitativademetas

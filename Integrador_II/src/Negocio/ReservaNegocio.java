@@ -35,6 +35,12 @@ public class ReservaNegocio implements ReservaDAO{
 		
 		return metodo.ListarTipo_Pasaje();
 	}
+
+
+
+
+
+
 	
 
 }

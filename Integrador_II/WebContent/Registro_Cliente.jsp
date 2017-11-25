@@ -45,35 +45,35 @@
       
              
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" required >
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Ingrese Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" required >
 </div>
     <div class="help"></div>
     
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido" required>
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Ingrese Apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido" required>
 </div>
  <div class="help"></div>
  
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Seleccione.</span>
-  <input type="Date" class="form-control" placeholder="fecha de nacimiento" aria-label="Username" aria-describedby="basic-addon1" name="fecha_nacimiento" required >
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="Date" class="form-control" placeholder="Seleccione Fecha de Nacimiento" aria-label="Username" aria-describedby="basic-addon1" name="fecha_nacimiento" required >
 </div>
   
 
     <div class="help"></div>
 <div class="input-group">
-<span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="correo@example.com" aria-label="Recipient's username" aria-describedby="basic-addon1" name="correo" required>
+<span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Ingrese correo@example.com" aria-label="Recipient's username" aria-describedby="basic-addon1" name="correo" required>
   
 </div>
 
     <div class="help"></div>
 
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required >
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Ingrese Password" aria-label="Username" aria-describedby="basic-addon1" name="password" required >
 </div>
 
  <div class="help"></div>
@@ -117,8 +117,8 @@
 
 
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese...</span>
-  <input type="text" class="form-control" placeholder="Numero Documento" aria-label="Username" aria-describedby="basic-addon1"name="numero_doc" required>
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Inegre Numero Documento" aria-label="Username" aria-describedby="basic-addon1"name="numero_doc" required>
 </div>
 
 

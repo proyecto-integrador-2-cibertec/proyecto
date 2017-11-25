@@ -12,7 +12,12 @@ public class Paises {
 	public Paises() {
 		super();
 	}
-
+	public Paises( String nombrePais) {
+		super();
+		
+		NombrePais = nombrePais;
+	}
+	
 	public Paises(String codigoPais, String nombrePais) {
 		super();
 		CodigoPais = codigoPais;

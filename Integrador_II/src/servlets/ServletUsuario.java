@@ -87,7 +87,7 @@ public class ServletUsuario extends HttpServlet {
         if(status)
         {
             System.out.println("Usuario registrado");
-            request.getRequestDispatcher("Registro_Cliente.html").forward(request, response);
+            request.getRequestDispatcher("Registro_Cliente.jsp").forward(request, response);
         }
         else 
         {
@@ -117,7 +117,7 @@ public class ServletUsuario extends HttpServlet {
 	//	int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
 
         //TODO implementar validación del formulario
-		Reserva bean =new Reserva(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
+		Reserva bean =new Reserva(1,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
         ReservaNegocio userDaoImpl = new ReservaNegocio();
         
         boolean status = userDaoImpl.RegistrarReserva(bean);
@@ -163,7 +163,7 @@ public class ServletUsuario extends HttpServlet {
 	//	int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
 
         //TODO implementar validación del formulario
-		Reserva bean =new Reserva(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
+		Reserva bean =new Reserva(1,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,tipo_doc2);      
         ReservaNegocio userDaoImpl = new ReservaNegocio();
         
         CotizarNegocio userDao=new CotizarNegocio();
