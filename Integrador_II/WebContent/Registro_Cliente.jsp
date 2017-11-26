@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS ------->
         <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
        
       <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
       <link href="./css/style_registro_cliente.css" rel="stylesheet" >
-   
+    <script src="js/validar.js"></script>
    
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -33,7 +33,7 @@
         <div class="help"></div>
                   <h2 class="text-uppercase text-center">Inscríbete</h2>
              <div class="help"></div>
-            <p class="lead text-center">Únete, de manera fácil y rápida, a nuestro programa de viajero frecuente. Como socio podrás acumular kilómetros, 
+            <p class="lead text-center">Únete, de manera fácil y rápida, a  nuestro programa de viajero frecuente. Como socio podrás acumular kilómetros, 
                 canjear pasajes y acceder a exclusivos beneficios.</p>
         </div>
      
@@ -46,13 +46,13 @@
              
      <div class="input-group">
   <span class="input-group-addon" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Ingrese Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" required >
+  <input type="text" class="form-control" placeholder="Ingrese DNI" aria-label="Username" aria-describedby="basic-addon1" name="nombre" onkeypress="return soloNumeros(event);" id="id_dni" required >
 </div>
     <div class="help"></div>
     
      <div class="input-group">
   <span class="input-group-addon" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Ingrese Apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido" required>
+  <input type="text" class="form-control" placeholder="Ingrese Apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido"onkeypress="return soloLetras(event);" id="id_nombre"  required>
 </div>
  <div class="help"></div>
  
