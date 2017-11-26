@@ -1,0 +1,94 @@
+/**/
+
+.bg-glight {
+  background-color: #fff;
+}
+
+.link-nav{
+  cursor: pointer;
+   font-family: 'Open Sans', sans-serif;
+
+}
+
+.text-gl{
+  color: #4AB0A8;
+
+}
+
+.btn-standar{
+  cursor: pointer;
+  background-color: #F05F40;
+  transition-duration: 0.2s;
+  color: white;
+  width: 100px;
+
+}
+.btn-standar:hover{
+  background-color: #F0411C;
+  transition-duration: 0.2s;
+  color: white;
+}
+
+
+.btn-login{
+  cursor: pointer;
+  background-color: #F05F40;
+  transition-duration: 0.2s;
+  color: white;
+
+}
+.btn-login:hover{
+  background-color: #F0411C;
+  transition-duration: 0.2s;
+  color: white;
+}
+
+.menu:hover{
+
+    background-color:#F05F40;
+    transition-duration: 0.2s;
+    color: white;
+    border-radius: 0.3em;
+}
+
+.bread-v{
+
+  background-color: #F05F40;
+  color:#fff;
+  border-radius: 0.5em;
+  width: 60px;
+  height:25px;
+  text-align:center;
+  margin-right: 
+}
+
+
+
+#firstSection {
+  padding-top:50px;
+  height:640px;
+}
+
+#secondSection {
+  padding-top:70px;
+  height:640px;
+  color: #000; 
+  background-color: #1E88E5;
+}
+
+#thirdSection {
+  padding-top:70px;
+  height:640px;
+  color: #000; 
+  background-color: #fff;
+}
+
+#fourtSection {
+  padding-top:50px;
+  height:640px;
+  color: #fff; 
+  background-color: #000;
+}
+
+
+

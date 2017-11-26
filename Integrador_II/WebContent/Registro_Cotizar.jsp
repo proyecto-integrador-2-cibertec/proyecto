@@ -194,8 +194,8 @@ out.println("<h1 align=\"center\"> Lista de Usuarios </h1>");
 	
 	
 	 <%
-                        	ReservaNegocio negocior4 = new ReservaNegocio();
-                        ArrayList <Reserva>lista_r4 = negocior.ListarTipo_Pasaje();
+//                         	ReservaNegocio negocior4 = new ReservaNegocio();
+//                         ArrayList <Reserva>lista_r4 = negocior.ListarTipo_Pasaje();
                         	for(Reserva aux : lista_r){
                         		%>
                         		<option value="<%=aux.getId_reserva_r()%>"> <%=aux.getTipo_pasaje_r()%></option>
@@ -276,8 +276,8 @@ out.println("<h1 align=\"center\"> Lista de Usuarios </h1>");
 
 <!-- Los import -->
 <%@ page language="java" %>
-<%@ page import = "chuidiang.ejemplos.Contacto"%> 
-<%@ page import = "chuidiang.ejemplos.ConsultaAgenda"%> 
+<%-- <%@ page import = "chuidiang.ejemplos.Contacto"%>  --%>
+<%-- <%@ page import = "chuidiang.ejemplos.ConsultaAgenda"%>  --%>
 <%@ page import = "java.util.LinkedList"%> 
 <html>
 <body>
@@ -290,16 +290,16 @@ out.println("<h1 align=\"center\"> Lista de Usuarios </h1>");
 <td>telefono</td>
 </tr>
 <%
-LinkedList<Contacto> lista = ConsultaAgenda.getContactos();
-for (int i=0;i<lista.size();i++)
-{
-   out.println("<tr>");
-   out.println("<td>"+lista.get(i).getId()+"</td>");
-   out.println("<td>"+lista.get(i).getNombre()+"</td>");
-   out.println("<td>"+lista.get(i).getApellido()+"</td>");
-   out.println("<td>"+lista.get(i).getTelefono()+"</td>");
-   out.println("</tr>");
-}
+// LinkedList<Contacto> lista = ConsultaAgenda.getContactos();
+// for (int i=0;i<lista.size();i++)
+// {
+//    out.println("<tr>");
+//    out.println("<td>"+lista.get(i).getId()+"</td>");
+//    out.println("<td>"+lista.get(i).getNombre()+"</td>");
+//    out.println("<td>"+lista.get(i).getApellido()+"</td>");
+//    out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+//    out.println("</tr>");
+// }
 %>
 </table>
 </body>
