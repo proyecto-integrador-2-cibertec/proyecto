@@ -31,7 +31,7 @@
    <div class="container"margin-top="5%"  >
       <div class="container">
         <div class="help"></div>
-                  <h2 class="text-uppercase text-center">Registrar tu Vuelo</h2>
+                  <h2 class="text-uppercase text-center">Registrar tu Reserva</h2>
              <div class="help"></div>
             <p class="lead text-center">Únete, de manera fácil y rápida, a nuestro programa de viajero frecuente. Como socio podrás acumular kilómetros, 
                 canjear pasajes y acceder a exclusivos beneficios.</p>
@@ -51,8 +51,8 @@
     <div class="help"></div>
     
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Ingrese......</span>
-  <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre_r" required>
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre_r"  onkeypress="return soloLetras(event);" id="id_nombre" required  >
 </div>
 
  <div class="help"></div>
@@ -79,7 +79,7 @@
 
 
      <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Fecha Salida</span>
+  <span class="input-group-addon" id="basic-addon1">@</span>
   <input type="Date" class="form-control" placeholder="fecha de Salida" aria-label="Username" aria-describedby="basic-addon1" name="fechas_r" required >
 </div>
   
@@ -95,8 +95,16 @@ function cambio(select,s2){
 		      CU: ["Havana", "Varadero", "Santiago de cuba", "PorAlegre"],
 		    }
 	
-	var l1 = ["Lima", "Arequipa", "Cusco", "Piura", "Tacna"];		      
-		  
+	var l1 = ["Esbjerg", "Randers", "Kolding", "Vejle", "Herning"];		      
+
+	var l2 = ["Teherán", "	Mashhad", "Isfahán", "	Shiraz", "Tabriz"];	
+	var l3 = ["	Arizona", "Nueva York", "California	", "Illinois", "Míchigan"];	
+	var l4 = ["Colima", "Ciudad de Mexico", "Ciudad Juárez", "Comitán", "Cozumel"];	
+	var l5 = ["Alto Caparaó", "Belágua", "Bela Vista", "Boqueirão do Leão", "Borá"];	
+	var l6 = ["La Romana","Baní", "Bonao", "Moca", "Cotuí"];	
+	var l7 = ["Les Cayes", "Arequipa", "Belle-Anse", "Chambellan", "Dame-Marie"];		
+	var l8 = ["Ahuachapán", "Antiguo Cuscatlán", "Apopa", "Chalatenango", "Chalchuapa"];	
+	var l9 = ["Comayagua", "Puerto Cortés", "Danlí", "Siguatepeque", "Juticalpa"];		  
 	
 	// var select = document.getElementById("pais");
 

@@ -9,6 +9,7 @@ create table paises (
 );
 
 INSERT INTO paises VALUES
+<<<<<<< HEAD
 ('AU', 'Australia'),
 ('CN', 'China'),
 ('JP', 'Japan'),
@@ -62,6 +63,24 @@ INSERT INTO paises VALUES
 ('NI', 'Nicaragua'),
 ('GY', 'Guyana'),
 ('CU', 'Cuba');
+=======
+
+('DK', 'Denmark'),
+('IR', 'Iran'),
+('US', 'United States'),
+('MX', 'Mexico'),
+('BR', 'Brazil'),
+('DO', 'Dominican Republic'),
+('HT', 'Haiti'),
+('PE','Peru'),
+('JP','Japon')
+('FM', 'Micronesi'),
+('SV', 'El Salvador'),
+('HN', 'Honduras'),
+('LA', 'Lao People''s Democratic Republic'),
+('CU', 'Cuba'),
+('ET', 'Ethiopia');
+>>>>>>> 20272224edbb187f36802c616ccc6a683cecbc8e
 
 select * from paises order by nombre_pais asc;
 

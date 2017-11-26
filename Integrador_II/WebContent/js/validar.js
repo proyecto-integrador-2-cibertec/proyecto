@@ -199,7 +199,7 @@ $(document).ready(function () {
        // capturamos la tecla pulsada
        var teclaPulsada=window.event ? window.event.keyCode:e.which;
        // capturamos el contenido del input
-       var valor=document.getElementById("inputLetras").value;
+       var valor=document.getElementById("id_nombre").value;
 
        var s="/^[A-Z a-z]/i";
            // 13 = tecla enter
