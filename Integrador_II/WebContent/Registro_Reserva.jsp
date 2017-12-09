@@ -25,9 +25,14 @@
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
 <title>Registro de Cliente  </title>
+
+
+
+
+
  </head>
     <body>
-    <form class="form-horizontal" role="form" action="ServletUsuario" method="post" >
+    <form name="formu" class="form-horizontal" role="form" action="ServletUsuario" method="post" >
    <div class="container"margin-top="5%"  >
       <div class="container">
         <div class="help"></div>
@@ -84,104 +89,142 @@
 </div>
   
 
-
-
-<script type="text/JavaScript">
+ 
+    
+    <script type="text/JavaScript">
 function cambio(select,s2){
 	
-	var listaciudades = {
-		      PE: ["Lima", "Arequipa", "Cusco", "Piura", "Tacna"],
-		      ES: ["Langreo", "Villaviciosa", "Oviedo", "Gijon", "Covadonga"],
-		      CU: ["Havana", "Varadero", "Santiago de cuba", "PorAlegre"],
-		    }
-	
-	var l1 = ["Esbjerg", "Randers", "Kolding", "Vejle", "Herning"];		      
-
-	var l2 = ["Teherán", "	Mashhad", "Isfahán", "	Shiraz", "Tabriz"];	
-	var l3 = ["	Arizona", "Nueva York", "California	", "Illinois", "Míchigan"];	
-	var l4 = ["Colima", "Ciudad de Mexico", "Ciudad Juárez", "Comitán", "Cozumel"];	
-	var l5 = ["Alto Caparaó", "Belágua", "Bela Vista", "Boqueirão do Leão", "Borá"];	
-	var l6 = ["La Romana","Baní", "Bonao", "Moca", "Cotuí"];	
-	var l7 = ["Les Cayes", "Arequipa", "Belle-Anse", "Chambellan", "Dame-Marie"];		
-	var l8 = ["Ahuachapán", "Antiguo Cuscatlán", "Apopa", "Chalatenango", "Chalchuapa"];	
-	var l9 = ["Comayagua", "Puerto Cortés", "Danlí", "Siguatepeque", "Juticalpa"];		  
+	alert(select);
+	//int jj=0;	55
 	
 	// var select = document.getElementById("pais");
 
+	alert(select+"3");
 	  var options=document.getElementsByTagName("option");
-	 var sd=select;
+	 var sd=select.value+"";
 	  var ciudad = document.getElementById('ciudad')
-	    var ciudad2 = document.getElementById('ciudad2')
-	 
-	alert(sd);
-int jj=0;	55
- a = ["1","2","3"];
-		  a.foreach ( function (elemento) {
-
-			  var opcion = document.createElement('option')
-		        opcion.value = a[jj]
-		        opcion.text =a[jj]
-		        ciudad2.add(opcion)
-		jj++;        
-		  });
 	
-	  if(sd=="JP"){
-		  
-		 
-		
-		  for (var j=0;j<5;j++){
-				
-			  var opcion = document.createElement('option')
-		        opcion.value = l1[j]
-		        opcion.text =l1[j]
-		        ciudad2.add(opcion)
-		        
-		  }
-		  for (var i=0;i<5;i++){
-			
-		  var opcion = document.createElement('option')
-	        opcion.value = listap[i]
-	        opcion.text =listap[i]
+	alert(select+"2");
+ 
+	 var str = new String;
+    	   str = select;
+    	 
+    	  
+    	   
+     <%String xx="";%>
+     if(str=='PE'){    	 
+       <% xx ="PE" ;%>
+       }
+       if(str=='BS'){
+    	   <% xx ="BS" ;%>}
+    	   if(str=="AU"){
+        	   <% xx ="AU" ;%>  
+        	   }
+    	   if(str=="CN"){
+        	   <% xx ="CN" ;%>  
+        	   }
+	   	
+    	   if(str=="IN"){
+        	   <% xx="IN" ;%>  
+        	   }
+	   	
+    	   if(str=="MY"){
+        	   <% xx ="MY" ;%>  
+        	   }
+    	   if(str=="MX"){
+        	   <% xx ="MX" ;%>  
+        	   }
+	   	
+    	   if(str=="VN"){
+        	   <% xx ="VN";%>  
+        	   }
+
+    	   if(str=="BR"){
+        	   <% xx ="BR";%>  
+        	   }
+
+      	   if(str=="IT"){
+        	   <% xx ="IT" ;%>  
+        	   }
+
+    	   if(str=="GR"){
+        	   <% xx ="GR" ;%>  
+        	   }
+	   	
+
+    	   if(str=="PH"){
+        	   <% xx ="PH" ;%>  
+        	   }
+    	  
+
+    	   if(str=="GB"){
+        	   <% xx ="GB" ;%>  
+        	   }
+    	   
+    	   if(str=="NL"){
+    		   <% xx="NL";%>
+    	   }
+    	   if(str=="JP"){
+    		   <% xx="JP";%>
+    	   } 
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   <%
+       	CiudadNegocio negocio8 = new CiudadNegocio();
+       	ArrayList <ciudad>lista8=negocio8.ListarCiudad(xx);
+       System.out.println(xx+"--");
+       	for(ciudad aux8:lista8){
+       		%>
+
+       		alert(aux8+"----rerere");
+       	  var opcion = document.createElement('option')
+       	  alert(select);
+       	  var s="<%=aux8.getNombreciudad()%>"       		
+	        opcion.value =s       	
+	        opcion.text =s       	
 	        ciudad.add(opcion)
-	        
-	  }
-		
-	  } 
-	    
-	    }
-	    
-	    
+	      
+       	
+       		<%
+       		System.out.println(xx+"-12-");		
+       	}  
+       	 
+       	
+       %>
+        		
+           	
+  	   
+	   	
+           	                                               	
+          
+	  	  
 
-function makeArray() {
-     var myArray = new Array(4);
-     myArray[0] = "A";
-     myArray[1] = "B";
-     myArray[2] = "C";
-     myArray[3] = "D";
-     return myArray;
-}
-function showArray(theArray){
-     var quote = "";
-     for (var i = 0; i < theArray.length; i++){
-         quote += theArray[i] + " ";
-     }
-     return quote;    
-}
+ 
+	
+ }
 
-
-   var x = makeArray();
-   document.write(showArray(x));
+	    
 
 	    
 	    
 	    
-	    
-</Script>
+</Script>  
+
+
+
+
 
  <div class="help"></div>
      <div class="form-group">
                         <label for="text-input">Selecione Pais</label>
-                        <select  id="pais" name="pais_r" class="form-control"onchange='cambio(this.value,ciudad)' >
+                        <select  id="pais" name="pais_r" class="form-control" onchange='cambio(this.value,ciudad)' >
                         <%
                         	PaisesNegocio negocio = new PaisesNegocio();
                         	ArrayList <Paises>lista=negocio.ListarPaises();
@@ -190,6 +233,7 @@ function showArray(theArray){
                         		
                         		%>
                         		<option  value="<%=aux.getCodigoPais() %>"> <%=aux.getNombrePais()%></option>
+                        		
                         		
                         		<%
                         		
@@ -205,25 +249,31 @@ function showArray(theArray){
                     
  <div class="help"></div>
      <div class="form-group">
-                        <label for="text-input">Selecione Ciudad origen</label>
-                        <select id="ciudad" name="ciudad" class="form-control" >
-                       
-                     
+                        <label for="text-input">Selecione Ciudad Destino</label>
+                        <select id="ciudad" name="ciudado_r" class="form-control" >
+                 
                         </select>
               
                     </div>
                       
- <div class="help"></div>
-     <div class="form-group">
-                        <label for="text-input">Selecione Ciudad Llegada</label>
-                        <select id="ciudad2" name="ciudadf_r" class="form-control" >
-                       
-                        </select>
-              
-                    </div>             
+ <div class="help">
+ </div>
+ 
+         
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" value="<%=150 %>" aria-label="Username" aria-describedby="basic-addon1" name="precio_r" onkeypress="return soloNumeros(event);" id="id_precio" required readonly="readonly" >
+</div>
+    <div class="help"></div>     
                        
 
- <div class="help"></div>
+      
+     <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" class="form-control" placeholder="asientos" aria-label="Username" aria-describedby="basic-addon1" name="asientos_r" onkeypress="return soloNumeros(event);" id="id_asientos" required >
+</div>
+    <div class="help"></div>     
+                       
 
 
 
@@ -236,12 +286,14 @@ function showArray(theArray){
      </div>  
      
      
-     </div>             
+     </div>  
+     
+     
+    
+     
+                
     </form>  
           
-
-    
-      
 
 
 </body>

@@ -8,9 +8,10 @@ public class Reserva {
 	private String tipo_pasaje_r;
 	private String fecha_salida_r ;
 	private String ciudad_origen_r ;
-	private String ciudad_destino_r ;
 	private String codigo_pais_r;
-	  
+	private double precio;
+	private int numero;
+	
 		public Reserva() {
 			super();
 		}
@@ -31,9 +32,23 @@ public class Reserva {
 
 
 
+	public Reserva(String num_doc, String nom_pasajero_r, String tipo_pasaje_r, String fecha_salida_r,
+			String ciudad_origen_r, String codigo_pais_r, double precio, int numero) {
+		super();
+		this.num_doc = num_doc;
+		this.nom_pasajero_r = nom_pasajero_r;
+		this.tipo_pasaje_r = tipo_pasaje_r;
+		this.fecha_salida_r = fecha_salida_r;
+		this.ciudad_origen_r = ciudad_origen_r;
+		this.codigo_pais_r = codigo_pais_r;
+		this.precio = precio;
+		this.numero = numero;
+	}
 
-	public Reserva(int id_reserva_r, String num_doc, String nom_pasajero_r, String tipo_pasaje_r,
-			String fecha_salida_r, String ciudad_origen_r, String ciudad_destino_r, String codigo_pais_r) {
+
+
+	public Reserva(int id_reserva_r, String num_doc, String nom_pasajero_r, String tipo_pasaje_r, String fecha_salida_r,
+			String ciudad_origen_r, String codigo_pais_r, double precio, int numero) {
 		super();
 		this.id_reserva_r = id_reserva_r;
 		this.num_doc = num_doc;
@@ -41,10 +56,10 @@ public class Reserva {
 		this.tipo_pasaje_r = tipo_pasaje_r;
 		this.fecha_salida_r = fecha_salida_r;
 		this.ciudad_origen_r = ciudad_origen_r;
-		this.ciudad_destino_r = ciudad_destino_r;
 		this.codigo_pais_r = codigo_pais_r;
+		this.precio = precio;
+		this.numero = numero;
 	}
-
 
 
 
@@ -54,11 +69,9 @@ public class Reserva {
 
 
 
-
 	public void setId_reserva_r(int id_reserva_r) {
 		this.id_reserva_r = id_reserva_r;
 	}
-
 
 
 
@@ -68,11 +81,9 @@ public class Reserva {
 
 
 
-
 	public void setNum_doc(String num_doc) {
 		this.num_doc = num_doc;
 	}
-
 
 
 
@@ -82,11 +93,9 @@ public class Reserva {
 
 
 
-
 	public void setNom_pasajero_r(String nom_pasajero_r) {
 		this.nom_pasajero_r = nom_pasajero_r;
 	}
-
 
 
 
@@ -96,11 +105,9 @@ public class Reserva {
 
 
 
-
 	public void setTipo_pasaje_r(String tipo_pasaje_r) {
 		this.tipo_pasaje_r = tipo_pasaje_r;
 	}
-
 
 
 
@@ -110,11 +117,9 @@ public class Reserva {
 
 
 
-
 	public void setFecha_salida_r(String fecha_salida_r) {
 		this.fecha_salida_r = fecha_salida_r;
 	}
-
 
 
 
@@ -124,25 +129,9 @@ public class Reserva {
 
 
 
-
 	public void setCiudad_origen_r(String ciudad_origen_r) {
 		this.ciudad_origen_r = ciudad_origen_r;
 	}
-
-
-
-
-	public String getCiudad_destino_r() {
-		return ciudad_destino_r;
-	}
-
-
-
-
-	public void setCiudad_destino_r(String ciudad_destino_r) {
-		this.ciudad_destino_r = ciudad_destino_r;
-	}
-
 
 
 
@@ -152,9 +141,32 @@ public class Reserva {
 
 
 
-
 	public void setCodigo_pais_r(String codigo_pais_r) {
 		this.codigo_pais_r = codigo_pais_r;
+	}
+
+
+
+	public double getPrecio() {
+		return precio;
+	}
+
+
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+
+
+	public int getNumero() {
+		return numero;
+	}
+
+
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 

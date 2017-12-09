@@ -38,20 +38,27 @@ public class MetodosPaises implements PaisesDAO{
 ArrayList<Paises> lista = new ArrayList<Paises>();
 		
 		try {
-			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select nombre_ciudad from ciudades where codigo_pais="+cod);
-			ResultSet rs = psta.executeQuery();
 			
+			PreparedStatement psta = MySqlConexion.getConexion().prepareStatement("select nombre_ciudad from ciudades where codigo_pais='"+cod+"'");
+			
+			ResultSet rs = psta.executeQuery();
+		
 			while(rs.next()) {
-				Paises p = new Paises(rs.getString(1));
+				Paises p = new Paises(rs.getString("nombre_ciudad"));
+				
 				lista.add(p);
+				System.out.println(p+"error");
 			}
 			
-		} catch(Exception e) {}
+		
+		} catch(Exception e) {
+			System.out.println(e+"error");
+		}
 		return lista;
 	}
 
 	
 
-	
+
 	
 }

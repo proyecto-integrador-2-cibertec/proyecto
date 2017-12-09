@@ -38,6 +38,14 @@ public class ReservaNegocio implements ReservaDAO{
 
 
 
+	@Override
+	public boolean validarReserva(String s, String s2) {
+		// TODO Auto-generated method stub
+		return metodo.validarReserva(s,s2);
+	}
+
+
+
 
 
 

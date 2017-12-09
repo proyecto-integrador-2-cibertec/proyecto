@@ -1,5 +1,13 @@
 create database ProyectoIntegrador_II;
 
+
+use ProyectoIntegrador_II;
+
+
+
+
+create database ProyectoIntegrador_II;
+
 use ProyectoIntegrador_II;
 
 create table paises (
@@ -9,78 +17,28 @@ create table paises (
 );
 
 INSERT INTO paises VALUES
-<<<<<<< HEAD
+
 ('AU', 'Australia'),
 ('CN', 'China'),
 ('JP', 'Japan'),
 ('TH', 'Thailand'),
 ('IN', 'India'),
 ('MY', 'Malaysia'),
-('HK', 'Hong Kong'),
-('TW', 'Taiwan'),
 ('PH', 'Philippines'),
 ('VN', 'Vietnam'),
 ('IT', 'Italy'),
 ('GR', 'Greece'),
 ('ES', 'Spain'),
-('AT', 'Austria'),
-('GB', 'United Kingdom'),
-('NL', 'Netherlands'),
-('AE', 'United Arab Emirates'),
-('PT', 'Portugal'),
-('US', 'United States'),
 ('MX', 'Mexico'),
 ('BR', 'Brazil'),
-('LU', 'Luxembourg'),
-('PA', 'Panama'),
-('DO', 'Dominican Republic'),
-('PR', 'Puerto Rico'),
-('NZ', 'New Zealand'),
-('SG', 'Singapore'),
-('AR', 'Argentina'),
-('ME', 'Montenegro'),
 ('PE', 'Peru'),
-('CO', 'Colombia'),
-('VE', 'Venezuela'),
-('CL', 'Chile'),
-('EC', 'Ecuador'),
-('BO', 'Bolivia'),
-('EG', 'Egypt'),
-('MG', 'Madagascar'),
-('CV', 'Cape Verde'),
-('CR', 'Costa Rica'),
-('JM', 'Jamaica'),
-('GT', 'Guatemala'),
-('AW', 'Aruba'),
-('PY', 'Paraguay'),
-('TT', 'Trinidad and Tobago'),
-('AD', 'Andorra'),
-('HT', 'Haiti'),
-('SV', 'El Salvador'),
-('HN', 'Honduras'),
-('UY', 'Uruguay'),
-('DM', 'Dominica'),
-('NI', 'Nicaragua'),
-('GY', 'Guyana'),
-('CU', 'Cuba');
-=======
-
-('DK', 'Denmark'),
+('CU', 'Cuba'),
 ('IR', 'Iran'),
-('US', 'United States'),
 ('MX', 'Mexico'),
 ('BR', 'Brazil'),
-('DO', 'Dominican Republic'),
-('HT', 'Haiti'),
 ('PE','Peru'),
-('JP','Japon')
-('FM', 'Micronesi'),
-('SV', 'El Salvador'),
-('HN', 'Honduras'),
-('LA', 'Lao People''s Democratic Republic'),
-('CU', 'Cuba'),
-('ET', 'Ethiopia');
->>>>>>> 20272224edbb187f36802c616ccc6a683cecbc8e
+('JP','Japon'),
+
 
 select * from paises order by nombre_pais asc;
 
@@ -92,25 +50,59 @@ create table ciudades (
       
   foreign key (codigo_pais) references paises(codigo_pais)
 );
-
+ 
+insert into ciudades values(null,'IT', 'roma');
+insert into ciudades values(null,'IT', 'sicilia');
+insert into ciudades values(null,'IT', 'roma');
 insert into ciudades values(null,'PE', 'Lima');
 insert into ciudades values(null,'PE', 'Arequipa');
 insert into ciudades values(null,'PE', 'Cusco');
 insert into ciudades values(null,'CU', 'Habana');
 insert into ciudades values(null,'CU', 'Varadero');
 insert into ciudades values(null,'CU', 'Cienfuegos');
-insert into ciudades values(null,'AU', 'Lima');
-insert into ciudades values(null,'AU', 'Arequipa');
-insert into ciudades values(null,'AU', 'Cusco');
-insert into ciudades values(null,'CN', 'Habana');
-insert into ciudades values(null,'CN', 'Varadero');
-insert into ciudades values(null,'CN', 'Cienfuegos');
-insert into ciudades values(null,'JP', 'Lima');
-insert into ciudades values(null,'JP', 'Arequipa');
-insert into ciudades values(null,'JP', 'Cusco');
-insert into ciudades values(null,'TH', 'Habana');
-insert into ciudades values(null,'TH', 'Varadero');
-insert into ciudades values(null,'TH', 'Cienfuegos');
+insert into ciudades values(null,'AU', 'Australia');
+insert into ciudades values(null,'AU', 'australia 2');
+insert into ciudades values(null,'AU', 'australia 3');
+insert into ciudades values(null,'CN', 'shangai');
+insert into ciudades values(null,'CN', 'taipe');
+insert into ciudades values(null,'CN', 'ciudad amarrila');
+insert into ciudades values(null,'JP', 'tokio');
+insert into ciudades values(null,'JP', 'kioto');
+insert into ciudades values(null,'JP', 'nagasaki');
+insert into ciudades values(null,'TH', 'tailandia');
+insert into ciudades values(null,'TH', 'tailandia 2');
+insert into ciudades values(null,'TH', 'tailandia 5');
+insert into ciudades values(null,'IN', 'india ');
+insert into ciudades values(null,'IN', 'india 2');
+insert into ciudades values(null,'IN', 'india 3');
+insert into ciudades values(null,'PH', 'Habana');
+insert into ciudades values(null,'PH', 'Varadero');
+insert into ciudades values(null,'PH', 'Cienfuegos');
+insert into ciudades values(null,'GR', 'Australia');
+insert into ciudades values(null,'GR', 'australia 2');
+insert into ciudades values(null,'GR', 'australia 3');
+insert into ciudades values(null,'VN', 'ciudad e  venesuela');
+insert into ciudades values(null,'VN', 'maracaibo');
+insert into ciudades values(null,'VN', 'evenesuela');
+insert into ciudades values(null,'MX', 'tegusigalpa');
+insert into ciudades values(null,'MX', 'ciudad de mexico');
+insert into ciudades values(null,'MX', 'colos');
+insert into ciudades values(null,'BS', 'bosnia');
+insert into ciudades values(null,'BS', 'bisnia 2');
+insert into ciudades values(null,'BS', 'bosnia 5');
+insert into ciudades values(null,'NL', 'neuvacelanda');
+insert into ciudades values(null,'NL', 'nueva Zelanda2');
+insert into ciudades values(null,'NL', 'bosnia 5');
+insert into ciudades values(null,'GB', 'neuvacelanda');
+insert into ciudades values(null,'GB', 'nueva Zelanda2');
+insert into ciudades values(null,'GB', 'bosnia 5');
+insert into ciudades values(null,'MY', 'neuvacelanda');
+
+insert into ciudades values(null,'MY', 'nueva Zelanda2');
+insert into ciudades values(null,'MY', 'bosnia 5');
+insert into ciudades values(null,'BR', 'neuvacelanda');
+insert into ciudades values(null,'BR', 'nueva Zelanda2');
+insert into ciudades values(null,'BR', 'bosnia 5');
 
 
 select nombre_ciudad from ciudades where codigo_pais='PE';
@@ -195,35 +187,12 @@ call InsertarPaquetes('V0002','Lima','Quito','23:00','00:00','Premiun Economy',1
 
 
 
-///////////////////////////////////////////////////
+
 select * from usuarios;
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
 
 delete  from usuarios where correo_usuario='admin@hotmail.com';
 
-select validar('admin@hotmail.com','121');
-
-//////////////////////////
-
-
-
-select validar('admin77@hotmail.com','1218')
-
-DELIMITER //
-CREATE  FUNCTION validar(correo varchar(20), num varchar(20)) RETURNS int
-BEGIN
-    if exists(select nom_usuario from usuarios where correo_usuario=correo or num_doc = num)
-    then
-        RETURN 1;
-    else 
-        RETURN 0;
-    end if;
-END
-//
-
-
-
-select validar('admin@hotmail.com','121');
 
 
 
@@ -240,18 +209,19 @@ insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Media');
 
 drop table Reservar_Vuelo
 
-create table Reservar_Vuelo(
-id_reserva_r int not null primary key auto_increment,
-num_doc varchar(20) not null,
-nom_pasajero_r varchar(20) not null,
-tipo_pasaje_r varchar(10) not null,
-fecha_salida_r date not null,
-codigo_pais_r varchar(20) NOT NULL,
-ciudad_origen_r varchar(20) NOT NULL,
-ciudad_destino_r varchar(20)not null
-);
 
-
+CREATE TABLE `reservar_vuelo` (
+  `id_reserva_r` int(11) NOT NULL AUTO_INCREMENT,
+  `num_doc` varchar(9) NOT NULL,
+  `nom_pasajero_r` varchar(20) NOT NULL,
+  `tipo_pasaje_r` varchar(15) NOT NULL,
+  `fecha_salida_r` date NOT NULL,
+  `codigo_pais_r` varchar(20) NOT NULL,
+  `ciudad_origen_r` varchar(20) NOT NULL,
+  `precio` double DEFAULT '0.2',
+  `asientos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_reserva_r`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 insert into Reservar_Vuelo values(null,'11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 'Cusco');
 
@@ -265,70 +235,39 @@ select * from Reservar_Vuelo;
 
 select execute sp_Generar_Reserva()+'-';
 
-DROP PROCEDURE IF EXISTS sp_Generar_Reserva
-DELIMITER //
-CREATE function sp_Generar_Reserva() RETURNS VARCHAR(20)
-BEGIN
-    DECLARE contador INT;
-    DECLARE p_codigo_secundario varchar(20);
-    BEGIN
-        SET contador= (SELECT COUNT(*)+1 FROM Reservar_Vuelo); 
-        IF(contador<10)THEN
-            SET p_codigo_secundario= CONCAT('R000',contador);
-             RETURN p_codigo_secundario;
-            ELSE IF(contador<100) THEN
-                SET p_codigo_secundario= CONCAT('R00',contador);
-                 RETURN p_codigo_secundario;
-                ELSE IF(contador<1000)THEN
-                    SET p_codigo_secundario= CONCAT('R0',contador);
-                     RETURN p_codigo_secundario;
-                END IF;
-            END IF;
-        END IF; 
-        
-    END;
-END
-//
 
-DELIMITER // ;
 
- 
-DELIMITER //
-
-CREATE function holaMundo() RETURNS VARCHAR(20)
-BEGIN
-    RETURN ‘HolaMundo’;
-END
-//
-
+CREATE TABLE `reservar_vuelo` (
+  `id_reserva_r` int(11) NOT NULL AUTO_INCREMENT,
+  `num_doc` varchar(9) NOT NULL,
+  `nom_pasajero_r` varchar(20) NOT NULL,
+  `tipo_pasaje_r` varchar(15) NOT NULL,
+  `fecha_salida_r` date NOT NULL,
+  `codigo_pais_r` varchar(20) NOT NULL,
+  `ciudad_origen_r` varchar(20) NOT NULL,
+  `precio` double DEFAULT '0.2',
+  `asientos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_reserva_r`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 
 create table comprar_pasajes(
 id_pasajes_c int not null primary key auto_increment,
-origen_c varchar(50) not null,
-destino_c varchar(50) not null,
-fecha_ida_c date not null,
-fecha_salida_c date not null,
-correo_usuario varchar(50) not null,
-pass_usuario varchar(50) not null,
+id_reserva_r int (11) null default 0,
+cod_vuelo varchar(30) ,
+tipo_pasaje_r varchar(20),
 codigo_pais varchar(2) NOT NULL,
-codigo_doc varchar(2) not null,
+destino_c varchar(50) not null,
+fecha_salida_c date not null,
 num_doc varchar(20) null,
-admin bit not null default 0,
-bloqueado bit not null default 0,
-num_intentos int not null default 3,
-check(admin in(0,1)),
-check(bloqueado in(0,1)),
-check (num_intentos>0),
-foreign key (codigo_pais) references paises(codigo_pais),
-foreign key (codigo_doc) references tipo_documento(codigo_doc)
+precio double  null default 0.2,
+num_asientos int,
+foreign key (cod_vuelo) references paqueteVuelo(cod_vuelo)
 );
 
-insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hotmail.com', 'adminMarcelo', 'PE', 'D1','72628132',1,0,3);
-insert into usuarios values(null,'admin', 'administrator', '1000-10-06','1@1.1', '1234', 'PE', 'D1','12345678',1,0,3);
-insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
+insert into comprar_pasajes values(null,1,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
+insert into comprar_pasajes values(null,1,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
 
-insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (?,'','5','2','1',0,0,0);
 
 
 
@@ -361,30 +300,6 @@ select count(*) from cotizar;
 
 
 
-DROP function IF EXISTS sp_Generar_Codigo
-
-DELIMITER $$
-CREATE function sp_Generar_Codigo() RETURNS VARCHAR(4)
-BEGIN
-   DECLARE contador INT ;
-    declare p_codigo_secundario varchar(4);
-    BEGIN
-        SET contador=(SELECT COUNT(*)+1 from tb_empleados); 
-        IF(contador<10)THEN
-            SET p_codigo_secundario= CONCAT('EM00',contador);
-            ELSE IF(contador<100) THEN
-                SET p_codigo_secundario= CONCAT('EM0',contador);
-                ELSE IF(contador<1000)THEN
-                    SET p_codigo_secundario= CONCAT('EM',contador);
-                END IF;
-            END IF;
-        END IF; 
-
-    END;
-return p_codigo_secundario;
-END
-$$
-
 
 
 delimiter //
@@ -402,122 +317,3 @@ delimiter ;
 
 select validaru3 ('jjose' ,'123') as resultado ;
 
-
-
-
-
-
-
-
-------------------------------------------------------------------------------
-
-
-create TABLE puesto(
-    codpuesto int NOT NULL AUTO_INCREMENT,
-    nompuesto VARCHAR(40) NOT NULL,
-    PRIMARY KEY (codpuesto)
-);
-//
-insert into puesto values(null,'Gerente Logistica');//
-insert into puesto values(null,'Gerente Marketing');//
-insert into puesto values(null,'Gerente de Produccion');//
-insert into puesto values(null,'Gerente de Telecomunicaciones');//
-insert into puesto values(null,'Gerente de RRHH');//
-insert into puesto values(null,'Gerente de PLANTA');//
-
-
-
-create procedure sp_Comb_Nombre_Perfil_GP(cod int)
-select nompuesto from puesto where codpuesto=cod;//
-
-call sp_Comb_Nombre_Perfil_GP(1);
-
-/* --------------------------------------------- */
-create TABLE perfilgerentespublicos(
-    codpuesto int NOT NULL,
-    codcompetencias int not null,
-	niveldeseado int(1)not null,
-    PRIMARY KEY (codpuesto,codcompetencias),
- key  codpuesto (codpuesto),
-  FOREIGN KEY (codpuesto) REFERENCES puesto (codpuesto),
-  FOREIGN KEY (codcompetencias) REFERENCES competencias (codcompetencias)
-      );
-insert into perfilgerentespublicos values(1,1,5);
-insert into perfilgerentespublicos values(1,2,4);
-insert into perfilgerentespublicos values(1,3,3);
-insert into perfilgerentespublicos values(1,4,2);
-insert into perfilgerentespublicos values(1,5,2);
-insert into perfilgerentespublicos values(1,6,3);
-insert into perfilgerentespublicos values(2,1,5);
-insert into perfilgerentespublicos values(2,2,4);
-insert into perfilgerentespublicos values(2,3,3);
-insert into perfilgerentespublicos values(2,4,2);
-insert into perfilgerentespublicos values(2,5,2);
-insert into perfilgerentespublicos values(2,6,3);
-insert into perfilgerentespublicos values(3,1,5);
-insert into perfilgerentespublicos values(3,2,4);
-insert into perfilgerentespublicos values(3,3,3);
-insert into perfilgerentespublicos values(3,4,2);
-insert into perfilgerentespublicos values(3,5,2);
-insert into perfilgerentespublicos values(3,6,3);
-insert into perfilgerentespublicos values(4,1,5);
-insert into perfilgerentespublicos values(4,2,1);
-insert into perfilgerentespublicos values(4,3,2);
-insert into perfilgerentespublicos values(4,4,5);
-insert into perfilgerentespublicos values(4,5,4);
-insert into perfilgerentespublicos values(4,6,2);
-insert into perfilgerentespublicos values(5,1,1);
-insert into perfilgerentespublicos values(5,2,5);
-insert into perfilgerentespublicos values(5,3,4);
-insert into perfilgerentespublicos values(5,4,3);
-insert into perfilgerentespublicos values(5,5,2);
-insert into perfilgerentespublicos values(5,6,3);
-insert into perfilgerentespublicos values(6,1,4);
-insert into perfilgerentespublicos values(6,2,4);
-insert into perfilgerentespublicos values(6,3,3);
-insert into perfilgerentespublicos values(6,4,1);
-insert into perfilgerentespublicos values(6,5,2);
-insert into perfilgerentespublicos values(6,6,2);
-
-create procedure sp_listarPerfilGerentePublico(cod int)
-select c.codpuesto,c.codcompetencias,p.nomcompetencia,c.niveldeseado from perfilgerentespublicos c inner join competencias p on p.codcompetencias= c.codcompetencias where c.codpuesto=cod;
-
-call sp_listarPerfilGerentePublico(3);
-
-
-
-create procedure sp_actualizarPerfilGerentePublico( nivel int , n1 int,n2 int)
-update perfilgerentespublicos set niveldeseado=nivel  where codpuesto=n1 and codcompetencias=n2;
-call sp_actualizarPerfilGerentePublico (5,1,1);
-
-
-
-create procedure sp_llenarcmbPerfilGP()
-select nompuesto from puesto ;
-
-
-
-create table evaluacioncualitativademetas(
-   codgerente char(7) ,
-    codmeta int ,
-    relacionconpoi varchar(50) null,
-    peso int not null ,
-	planaccion varchar(50) not null,
-    evaluacion varchar (60)null,
-PRIMARY KEY ( codgerente ,codmeta)
-      );
-      
-   insert into evaluacioncualitativademetas values( 'G100001',1,"cumplimiento de Actividades",15,"enviar los correos en su tiempo","");   
-   insert into evaluacioncualitativademetas values('G100001',2,"Empleabilidade del Personal",10,"sustentar el manejo del personal","");  
-   insert into evaluacioncualitativademetas values('G100001',3,"eficiencia de los empleado",20,"Comprobacion de sus tareas","");   
-   insert into evaluacioncualitativademetas values('G100001',4,"Accesibilidad alos recurso programados",30,"Lograr que los recursos llegue a todos","");  
-   insert into evaluacioncualitativademetas values('G100001',5,"supervision adecuada a los obrero",6,"Inspeccion adecuada","");   
-  
-  
-create procedure sp_evaluacioncaulitava(cod char(7))
-select * from evaluacioncualitativademetas where codgerente='G100001' ;
-
-call sp_evaluacioncaulitava ('G100001');
-      select * from  evaluacioncualitativademetas
-
-select codgerente,codmeta ,relacionconpoi,peso,planaccion,evaluacion from  evaluacioncualitativademetas

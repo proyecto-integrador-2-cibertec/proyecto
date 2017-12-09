@@ -20,6 +20,8 @@ public class PaqueteVuelos {
 	}
 
 
+	
+	
 	public PaqueteVuelos(String cod_vuelo, String origen, String destino, String hora_salida, String hora_llegada,
 			String tipo_vuelo, double precio, int num_asientos) {
 		super();

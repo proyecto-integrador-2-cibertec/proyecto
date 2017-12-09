@@ -6,7 +6,7 @@ import Modelo.Paises;
 import Modelo.Reserva;
 import Modelo.Usuarios;
 
-public interface ReservaDAO {
+public interface ComprarPasajeDAO {
 	
 	public ArrayList<Reserva> ListarReserva();
 	public boolean RegistrarReserva(Reserva bean);

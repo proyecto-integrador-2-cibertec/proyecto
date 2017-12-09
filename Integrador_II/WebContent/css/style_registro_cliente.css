@@ -12,6 +12,13 @@ body {
  /* align-items: center;
   font-size: 16px;*/
 }
+form form-inline
+{
+	
+	width: 900px;
+    height: 800px;
+}
+
 
 form {
   background: white;

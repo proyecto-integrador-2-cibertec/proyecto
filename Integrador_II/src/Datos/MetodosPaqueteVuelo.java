@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import utils.MySqlConexion;
 
 import Modelo.PaqueteVuelos;
+import Negocio.PaqueteVuelosDAO;
  
 
  
 
-public class MetodosPaqueteVuelo {
+public class MetodosPaqueteVuelo implements PaqueteVuelosDAO{
 	
 public ArrayList<PaqueteVuelos> ListarPaqueteVuelos() {
 		
