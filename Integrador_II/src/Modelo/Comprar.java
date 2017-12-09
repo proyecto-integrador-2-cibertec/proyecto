@@ -86,6 +86,18 @@ public class Comprar {
 	public void setNum_asientos(int num_asientos) {
 		this.num_asientos = num_asientos;
 	}
+	public Comprar(String cod_vuelo, String tipo_pasaje_r, String codigo_pais, String destino_c, String fecha_salida_c,
+			String num_doc, double precio_c, int num_asientos) {
+		super();
+		this.cod_vuelo = cod_vuelo;
+		this.tipo_pasaje_r = tipo_pasaje_r;
+		this.codigo_pais = codigo_pais;
+		this.destino_c = destino_c;
+		this.fecha_salida_c = fecha_salida_c;
+		this.num_doc = num_doc;
+		this.precio_c = precio_c;
+		this.num_asientos = num_asientos;
+	}
 	
 	
 }

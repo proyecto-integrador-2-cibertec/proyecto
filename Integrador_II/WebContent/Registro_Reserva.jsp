@@ -93,29 +93,31 @@
     
     <script type="text/JavaScript">
 function cambio(select,s2){
-	
-	alert(select);
+	var ff="BR"
+	if(select =="BR"){
+	alert(select+"aaaa");
+	}
 	//int jj=0;	55
 	
 	// var select = document.getElementById("pais");
 
-	alert(select+"3");
+	
 	  var options=document.getElementsByTagName("option");
 	 var sd=select.value+"";
 	  var ciudad = document.getElementById('ciudad')
 	
-	alert(select+"2");
+
  
 	 var str = new String;
     	   str = select;
     	 
     	  
     	   
-     <%String xx="";%>
-     if(str=='PE'){    	 
+     <%String xx="PE";%>
+     if(str == "PE"){    	 
        <% xx ="PE" ;%>
        }
-       if(str=='BS'){
+       if(str == "BS"){
     	   <% xx ="BS" ;%>}
     	   if(str=="AU"){
         	   <% xx ="AU" ;%>  
@@ -179,21 +181,20 @@ function cambio(select,s2){
     	   <%
        	CiudadNegocio negocio8 = new CiudadNegocio();
        	ArrayList <ciudad>lista8=negocio8.ListarCiudad(xx);
-       System.out.println(xx+"--");
+      
        	for(ciudad aux8:lista8){
        		%>
 
-       		alert(aux8+"----rerere");
        	  var opcion = document.createElement('option')
-       	  alert(select);
-       	  var s="<%=aux8.getNombreciudad()%>"       		
+       	
+       	  var s="<%=aux8.getNombreciudad().toString()%>"       		
 	        opcion.value =s       	
 	        opcion.text =s       	
 	        ciudad.add(opcion)
 	      
        	
        		<%
-       		System.out.println(xx+"-12-");		
+       			
        	}  
        	 
        	

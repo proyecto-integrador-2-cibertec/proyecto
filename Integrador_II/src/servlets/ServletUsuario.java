@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import javax.tools.ToolProvider;
 import javax.xml.bind.ParseConversionEvent;
 
+import Modelo.Comprar;
 import Modelo.Reserva;
 import Modelo.Usuarios;
+import Negocio.ComprarNegocio;
 import Negocio.CotizarNegocio;
 import Negocio.ReservaNegocio;
 import Negocio.UsuarioNegocio;
@@ -52,6 +54,9 @@ public class ServletUsuario extends HttpServlet {
 	  }
 	 if(metodo.equals("listar_cotizar")) {
 		 listar_cotizar(request,response);
+	  }
+	 if(metodo.equals("comprar_boleto")) {
+		 comprar_boleto(request,response);
 	  }
 	 
 	}
@@ -121,7 +126,7 @@ public class ServletUsuario extends HttpServlet {
        //     request.getRequestDispatcher("Registro_Cliente.jsp").forward(request, response);
         System.out.println("Usuario registrado");
             
-       
+        request.getRequestDispatcher("index.html").forward(request, response);
         
         
         } 
@@ -170,7 +175,7 @@ public class ServletUsuario extends HttpServlet {
          request.getRequestDispatcher("/msj/registro_exitoso.jsp").forward(request, response);
          
             System.out.println("Reserva registrado");
-           
+            request.getRequestDispatcher("index.html").forward(request, response);
        
 	        }else {
 	        request.getRequestDispatcher("/msj/error2.jsp").forward(request, response);
@@ -235,6 +240,54 @@ public class ServletUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	protected void comprar_boleto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	try {
+		 ComprarNegocio userDaoImpl = new ComprarNegocio();
+		
+			
+			//String nombre="R0003";
+			String nombre = request.getParameter("codc");
+			String apellido= request.getParameter("cboc");
+			String fecha_nacimiento = request.getParameter("pais_c");
+			String correo = request.getParameter("ciudad_c");
+			String password = request.getParameter("fechas_c");
+			String pais = request.getParameter("dnic");
+			double tipo_doc = Double.parseDouble(request.getParameter("prec"));
+			int precio =Integer.parseInt(request.getParameter("asc"));
+		//	int asiento = Integer.parseInt(request.getParameter("asientos_r"));
+		//	int numero_doc = Integer.parseInt(request.getParameter("numero_doc"));
+			
+			 Comprar bean =new Comprar(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,precio);  
+		        
+		   boolean status = userDaoImpl.RegistrarComprar(bean);
+			
+		    
+	     if(status) {
+	    	 Comprar bean2 =new Comprar(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,precio);  
+	        
+        //TODO implementar validación del formulario
+	//	Comprar bean =new Comprar(nombre,apellido,fecha_nacimiento, correo, password,pais,tipo_doc,precio);      
+       
+         userDaoImpl.RegistrarComprar(bean2);
+        
+         request.getRequestDispatcher("/msj/registro_exitoso.jsp").forward(request, response);
+
+			request.getRequestDispatcher("index.html").forward(request, response);
+      
+            System.out.println("registrado vuelo");
+           
+       
+	        }else {
+	        request.getRequestDispatcher("/msj/error2.jsp").forward(request, response);
+	        request.getRequestDispatcher("ComprarVuelo.jsp").forward(request, response);
+	        }
+        
+	} catch (Exception e) {
+		
+		 }
 	}
 
 }

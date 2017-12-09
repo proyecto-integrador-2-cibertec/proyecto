@@ -20,7 +20,6 @@ INSERT INTO paises VALUES
 
 ('AU', 'Australia'),
 ('CN', 'China'),
-('JP', 'Japan'),
 ('TH', 'Thailand'),
 ('IN', 'India'),
 ('MY', 'Malaysia'),
@@ -34,13 +33,10 @@ INSERT INTO paises VALUES
 ('PE', 'Peru'),
 ('CU', 'Cuba'),
 ('IR', 'Iran'),
-('MX', 'Mexico'),
-('BR', 'Brazil'),
-('PE','Peru'),
-('JP','Japon'),
+('JP','Japon')
 
 
-select * from paises order by nombre_pais asc;
+select * from paises where codigo_pais='PE';
 
 
 create table ciudades (
@@ -72,9 +68,9 @@ insert into ciudades values(null,'JP', 'nagasaki');
 insert into ciudades values(null,'TH', 'tailandia');
 insert into ciudades values(null,'TH', 'tailandia 2');
 insert into ciudades values(null,'TH', 'tailandia 5');
-insert into ciudades values(null,'IN', 'india ');
-insert into ciudades values(null,'IN', 'india 2');
-insert into ciudades values(null,'IN', 'india 3');
+insert into ciudades values(null,'IN', 'bagladesh ');
+insert into ciudades values(null,'IN', 'vaglis');
+insert into ciudades values(null,'IN', 'ponpein');
 insert into ciudades values(null,'PH', 'Habana');
 insert into ciudades values(null,'PH', 'Varadero');
 insert into ciudades values(null,'PH', 'Cienfuegos');
@@ -87,9 +83,6 @@ insert into ciudades values(null,'VN', 'evenesuela');
 insert into ciudades values(null,'MX', 'tegusigalpa');
 insert into ciudades values(null,'MX', 'ciudad de mexico');
 insert into ciudades values(null,'MX', 'colos');
-insert into ciudades values(null,'BS', 'bosnia');
-insert into ciudades values(null,'BS', 'bisnia 2');
-insert into ciudades values(null,'BS', 'bosnia 5');
 insert into ciudades values(null,'NL', 'neuvacelanda');
 insert into ciudades values(null,'NL', 'nueva Zelanda2');
 insert into ciudades values(null,'NL', 'bosnia 5');
@@ -97,16 +90,18 @@ insert into ciudades values(null,'GB', 'neuvacelanda');
 insert into ciudades values(null,'GB', 'nueva Zelanda2');
 insert into ciudades values(null,'GB', 'bosnia 5');
 insert into ciudades values(null,'MY', 'neuvacelanda');
-
 insert into ciudades values(null,'MY', 'nueva Zelanda2');
 insert into ciudades values(null,'MY', 'bosnia 5');
 insert into ciudades values(null,'BR', 'neuvacelanda');
 insert into ciudades values(null,'BR', 'nueva Zelanda2');
 insert into ciudades values(null,'BR', 'bosnia 5');
+insert into ciudades values(null,'ES', 'barcelona');
+insert into ciudades values(null,'ES', 'Ciudad vieja de madrid');
+insert into ciudades values(null,'ES', 'madrid');
 
 
 select nombre_ciudad from ciudades where codigo_pais='PE';
-select nombre_ciudad from ciudades where codigo_pais='PE'
+
 
 select * from paises order by nombre_pais asc;
 
@@ -146,7 +141,7 @@ insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_
 
 select * from usuarios;
 
---Creación de Paquetes de Vuelos
+
 create table paqueteVuelo(
 cod_vuelo char(5) not null primary key,
 origen varchar(30) not null,
@@ -179,16 +174,6 @@ call InsertarPaquetes('V0002','Lima','Quito','23:00','00:00','Premiun Economy',1
 
 
 
-
-
-
-
-
-
-
-
-
-select * from usuarios;
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
 
 delete  from usuarios where correo_usuario='admin@hotmail.com';
@@ -211,7 +196,7 @@ drop table Reservar_Vuelo
 
 
 CREATE TABLE `reservar_vuelo` (
-  `id_reserva_r` int(11) NOT NULL AUTO_INCREMENT,
+  `id_reserva_r` int NOT NULL AUTO_INCREMENT,
   `num_doc` varchar(9) NOT NULL,
   `nom_pasajero_r` varchar(20) NOT NULL,
   `tipo_pasaje_r` varchar(15) NOT NULL,
@@ -223,32 +208,12 @@ CREATE TABLE `reservar_vuelo` (
   PRIMARY KEY (`id_reserva_r`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-insert into Reservar_Vuelo values(null,'11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 'Cusco');
-
-insert into Reservar_Vuelo (id_reserva_r,num_doc,nom_pasajero_r,tipo_pasaje_r,fecha_salida_r,codigo_pais_r,ciudad_origen_r,ciudad_destino_r)values(select sp_Generar_Reserva(),'22222222', 'pasajero2', 'Vip', '1100-10-05','Lima', 'Havana');
-
-
-insert into Reservar_Vuelo values(select sp_Generar_Reserva(),'22222222', 'pasajero2', 'Vip', '2000-11-16','PE'+'Lima', 'Havana');
+insert into Reservar_Vuelo values(null,'11111111', 'pasajero1', 'Economico', '1000-10-06','PE','Lima', 1500,1);
 
 
 select * from Reservar_Vuelo;
 
-select execute sp_Generar_Reserva()+'-';
 
-
-
-CREATE TABLE `reservar_vuelo` (
-  `id_reserva_r` int(11) NOT NULL AUTO_INCREMENT,
-  `num_doc` varchar(9) NOT NULL,
-  `nom_pasajero_r` varchar(20) NOT NULL,
-  `tipo_pasaje_r` varchar(15) NOT NULL,
-  `fecha_salida_r` date NOT NULL,
-  `codigo_pais_r` varchar(20) NOT NULL,
-  `ciudad_origen_r` varchar(20) NOT NULL,
-  `precio` double DEFAULT '0.2',
-  `asientos` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_reserva_r`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 
 create table comprar_pasajes(
@@ -268,8 +233,10 @@ foreign key (cod_vuelo) references paqueteVuelo(cod_vuelo)
 insert into comprar_pasajes values(null,1,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
 insert into comprar_pasajes values(null,1,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
 
+insert into comprar_pasajes values(null,null,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
 
 
+select *  from comprar_pasajes
 
 
 

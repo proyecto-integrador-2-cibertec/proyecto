@@ -24,6 +24,7 @@ try {
 		
 			while(rs.next()) {
            ciudad p = new ciudad(rs.getString("nombre_ciudad"));
+          
          
 				lista.add(p);
 			}

@@ -54,23 +54,23 @@ public boolean RegistrarComprar(Comprar bean) {
 	try  {
 	        	
 PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement( "insert into comprar_pasajes(id_pasajes_c,id_reserva_r, cod_vuelo, tipo_pasaje_r,codigo_pais,"
-		+ " destino_c, fecha_salida_c,num_doc,precio,num_asientos) values(null,?,?,?,?,?,?,?,?,?);");
+		+ " destino_c, fecha_salida_c,num_doc,precio,num_asientos) values (null,null,?,?,?,?,?,?,?,?)");
 
         
-            preparedStatement.setInt(1, bean.getId_pasajes_c());
-            preparedStatement.setString(2, bean.getId_reserva_r());
-            preparedStatement.setString(3, bean.getCod_vuelo());
-            preparedStatement.setString(4, bean.getTipo_pasaje_r());
-            preparedStatement.setString(5, bean.getCodigo_pais()); 
-            preparedStatement.setString(6, bean.getDestino_c());
-            preparedStatement.setString(7, bean.getFecha_salida_c());
-            preparedStatement.setString(8, bean.getNum_doc());
-            preparedStatement.setDouble(9, bean.getPrecio_c());
-            preparedStatement.setInt(10, bean.getNum_asientos());
+          //  preparedStatement.setInt(1, bean.getId_pasajes_c());
+           // preparedStatement.setString(2, bean.getId_reserva_r());
+            preparedStatement.setString(1, bean.getCod_vuelo());
+            preparedStatement.setString(2, bean.getTipo_pasaje_r());
+            preparedStatement.setString(3, bean.getCodigo_pais()); 
+            preparedStatement.setString(4, bean.getDestino_c());
+            preparedStatement.setString(5, bean.getFecha_salida_c());
+            preparedStatement.setString(6, bean.getNum_doc());
+            preparedStatement.setDouble(7, bean.getPrecio_c());
+            preparedStatement.setInt(8, bean.getNum_asientos());
              
             preparedStatement.executeUpdate();
    
-        
+            System.out.println("  compra:exitosa " );   
         return true;
     } 
     catch (SQLException e) 
