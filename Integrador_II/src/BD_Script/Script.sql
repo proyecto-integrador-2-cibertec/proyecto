@@ -4,12 +4,6 @@ create database ProyectoIntegrador_II;
 use ProyectoIntegrador_II;
 
 
-
-
-create database ProyectoIntegrador_II;
-
-use ProyectoIntegrador_II;
-
 create table paises (
   codigo_pais char(2) NOT NULL,
   nombre_pais varchar(100) NOT NULL,
@@ -33,7 +27,7 @@ INSERT INTO paises VALUES
 ('PE', 'Peru'),
 ('CU', 'Cuba'),
 ('IR', 'Iran'),
-('JP','Japon')
+('JP','Japon');
 
 
 select * from paises where codigo_pais='PE';
@@ -83,12 +77,9 @@ insert into ciudades values(null,'VN', 'evenesuela');
 insert into ciudades values(null,'MX', 'tegusigalpa');
 insert into ciudades values(null,'MX', 'ciudad de mexico');
 insert into ciudades values(null,'MX', 'colos');
-insert into ciudades values(null,'NL', 'neuvacelanda');
-insert into ciudades values(null,'NL', 'nueva Zelanda2');
-insert into ciudades values(null,'NL', 'bosnia 5');
-insert into ciudades values(null,'GB', 'neuvacelanda');
-insert into ciudades values(null,'GB', 'nueva Zelanda2');
-insert into ciudades values(null,'GB', 'bosnia 5');
+insert into ciudades values(null,'GR', 'neuvacelanda');
+insert into ciudades values(null,'GR', 'nueva Zelanda2');
+insert into ciudades values(null,'GR', 'bosnia 5');
 insert into ciudades values(null,'MY', 'neuvacelanda');
 insert into ciudades values(null,'MY', 'nueva Zelanda2');
 insert into ciudades values(null,'MY', 'bosnia 5');
@@ -137,8 +128,6 @@ insert into usuarios values(null,'Marcelo', 'Sbrollini', '1997-10-06','admin@hot
 insert into usuarios values(null,'admin', 'administrator', '1000-10-06','1@1.1', '1234', 'PE', 'D1','12345678',1,0,3);
 insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,'aaaa', 'bbbb', '2017-10-27','cccc@dddd.com', 'abc', 'PE', 'D1','12345678');
 
-insert into usuarios( nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (?,'','5','2','1',0,0,0);
-
 select * from usuarios;
 
 
@@ -176,11 +165,6 @@ call InsertarPaquetes('V0002','Lima','Quito','23:00','00:00','Premiun Economy',1
 
 select * from usuarios where correo_usuario = 'admin@hotmail.com' && pass_usuario='adminMarcelo';
 
-delete  from usuarios where correo_usuario='admin@hotmail.com';
-
-
-
-
 
 create table Tipo_Pasaje(
 id_tipo_p int not null primary key auto_increment,
@@ -191,8 +175,6 @@ insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Economico');
 insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Vip');
 insert into Tipo_Pasaje (id_tipo_p,nombre_p)values(null,'Media');
 
-
-drop table Reservar_Vuelo
 
 
 CREATE TABLE `reservar_vuelo` (
@@ -236,7 +218,7 @@ insert into comprar_pasajes values(null,1,'V0001', 'vip', 'PE','lima', '1017-10-
 insert into comprar_pasajes values(null,null,'V0001', 'vip', 'PE','lima', '1017-10-01', '43924578',20,3);
 
 
-select *  from comprar_pasajes
+select *  from comprar_pasajes;
 
 
 
@@ -283,4 +265,3 @@ end;
 delimiter ;
 
 select validaru3 ('jjose' ,'123') as resultado ;
-
