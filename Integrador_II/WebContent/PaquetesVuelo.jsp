@@ -138,9 +138,6 @@
 					</div>
 			 </div>			
 		</div>
-                    <a href="RegistroEvaluaciones.jsp">
-                    <input type="button" value="Registrar Nueva Evaluación" class="btn btn-primary">
-                    </a>
            
 	</div>
 	

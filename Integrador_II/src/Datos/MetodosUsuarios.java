@@ -38,25 +38,7 @@ public class MetodosUsuarios implements UsuarioDAO {
 		
 		try  {
 			
-			Connection con = new MySqlConexion().getConexion();
-	        Statement stm = con.createStatement();
-	        ResultSet rs = stm.executeQuery("select validar('admin77@hotmail.com','1218')");
-	       
-	        
-	        int c=0;
-	          if(rs.next()) {	c=rs.getInt(1);}
-	        
-	        	if (c==1) {
-	        		
-	        		return false; 
-	        	}else {
-	        	
-	        		
-		        	rs.close();
-		        	stm.close();
-		            //No Existe
-		        	   System.out.println("ingreso");
-				PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
+	        PreparedStatement preparedStatement = MySqlConexion.getConexion().prepareStatement("insert into usuarios(id_usuario, nom_usuario, ape_usuario, fecha_nac, correo_usuario, pass_usuario, codigo_pais, codigo_doc, num_doc) values (null,?,?,?,?,?,?,?,?)");
 
 	        			
 	            preparedStatement.setString(1, bean.getNombreUsuario());
@@ -69,7 +51,7 @@ public class MetodosUsuarios implements UsuarioDAO {
 	            preparedStatement.setInt(8, bean.getNumeroDocumento());   
 	            preparedStatement.executeUpdate();
 	            
-	        	}
+	        	
 	        
 	        
             return true;

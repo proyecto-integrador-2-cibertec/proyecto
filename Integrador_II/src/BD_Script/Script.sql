@@ -245,23 +245,3 @@ insert into cotizar(id_cotizar, origen_c, destino_c, fecha_ida_c, fecha_salida_c
 
 select * from cotizar;
 select count(*) from cotizar;
-
-
-
-
-
-
-delimiter //
-CREATE FUNCTION validaru(u varchar (10)  ,p varchar(7)) RETURNS int
- as
-if (select count(*) from login where usuario=u and pass =p )>1
-begin 
-return 1;
-end
-else
-return -1;	
-go
-end;
-delimiter ;
-
-select validaru3 ('jjose' ,'123') as resultado ;

@@ -95,7 +95,7 @@ function cambio2(select,s2){
         	   <% xx ="GB";%>  
         	   }
     	  
-    	   if(str==="NL"){
+    	   if(str=="NL"){
     		   <% xx="NL";   %>
     		   
     		   

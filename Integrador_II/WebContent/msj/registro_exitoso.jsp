@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("Registro exitoso");
+alert("Compra exitosa");
 <%
 getServletContext().getRequestDispatcher("/index.html").include(request, response);
 %>

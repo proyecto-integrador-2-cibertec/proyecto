@@ -24,7 +24,7 @@
    
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
-<title>Registro de Cliente  </title>
+<title>Registro  </title>
  </head>
     <body>
     <form class="form-horizontal" role="form" action="ServletUsuario" method="post" >
